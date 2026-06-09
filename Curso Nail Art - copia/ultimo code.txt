@@ -1,0 +1,134 @@
+// @ts-nocheck
+// Código para pegar en Apps Script (Code.gs)
+// Sirve la UI (Index.html) y maneja el POST para login + envío de material.
+
+const MATERIAL_LINK = 'https://drive.google.com/drive/folders/1DDks73dZW2FmZMkenxXOZiQMJos1nkaB?usp=sharing';
+const SHEET_NAME = 'Datos Alumnas';
+
+function doGet(e) {
+  return HtmlService
+    .createHtmlOutputFromFile('Index')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+function doPost(e) {
+  const params = (e && e.parameter) ? e.parameter : {};
+  const clave = ((params.clave || params.password) || '').toString().trim().toLowerCase();
+  const email = ((params.email) || '').toString().trim().toLowerCase();
+
+  if (!clave || !email) {
+    return jsonOutput({ status: 'denied', message: 'Clave o email faltante' });
+  }
+
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const hoja = ss.getSheetByName(SHEET_NAME);
+  if (!hoja) {
+    return jsonOutput({ status: 'error', message: 'Hoja Datos Alumnas no encontrada' });
+  }
+
+  const lastRow = hoja.getLastRow();
+  if (lastRow < 2) {
+    return jsonOutput({ status: 'error', message: 'No hay datos en la hoja Datos Alumnas' });
+  }
+
+  const datos = hoja.getRange(2, 2, lastRow - 1, 2).getValues();
+  let filaIndex = -1;
+
+  for (let i = 0; i < datos.length; i++) {
+    const claveHoja = ((datos[i][0] || '')).toString().trim().toLowerCase();
+    if (claveHoja === clave) {
+      filaIndex = i;
+      break;
+    }
+  }
+
+  if (filaIndex === -1) {
+    return jsonOutput({ status: 'denied', message: 'Clave inválida' });
+  }
+
+  const emailAsignado = ((datos[filaIndex][1] || '')).toString().trim().toLowerCase();
+  const rowNumber = filaIndex + 2;
+
+  if (!emailAsignado) {
+    hoja.getRange(rowNumber, 3).setValue(email);
+  } else if (emailAsignado !== email) {
+    registrarAcceso(email, clave, 'denied');
+    return jsonOutput({ status: 'denied', message: 'Clave ya asignada a otro correo' });
+  }
+
+  registrarAcceso(email, clave, 'ok');
+
+  const nombre = obtenerNombrePorFila(hoja, rowNumber);
+
+  const enviado = sendAccessEmailAndMark(email, nombre, hoja, rowNumber);
+  if (!enviado) {
+    return jsonOutput({ status: 'error', message: 'No se pudo enviar el correo. Revisa permisos de MailApp.' });
+  }
+
+  return jsonOutput({ status: 'ok', message: 'Login correcto y correo enviado' });
+}
+
+function obtenerNombrePorFila(hoja, rowNumber) {
+  const lastCol = hoja.getLastColumn();
+  const headers = hoja.getRange(1, 1, 1, lastCol).getValues()[0].map(h => (h || '').toString().trim().toLowerCase());
+  const nombreIdx = headers.findIndex(h => /nombre|name/i.test(h));
+  if (nombreIdx !== -1) {
+    return hoja.getRange(rowNumber, nombreIdx + 1).getValue().toString().trim();
+  }
+  return hoja.getRange(rowNumber, 1).getValue().toString().trim();
+}
+
+function sendAccessEmailAndMark(email, nombre, hoja, rowNumber) {
+  try {
+    const subject = 'Acceso al material de trabajo - Curso Nail Art Rubimar';
+    const plainBody = `Hola estimada alumna,\n\n` +
+      `Te envío la información y los archivos de los materiales que utilizaremos en el curso Nail Art Rubimar.\n\n` +
+      `Abre la carpeta aquí: ${MATERIAL_LINK}\n\n` +
+      `Si tienes problemas, abre este enlace desde tu navegador o contáctame por WhatsApp.\n\n` +
+      `Saludos cordiales,\nRubimar`;
+    const html = `<p>Hola estimada alumna,</p>` +
+      `<p>Te envío la información y los archivos de los materiales que utilizaremos en el curso <strong>Nail Art Rubimar</strong>.</p>` +
+      `<p>Abre la carpeta aquí: <a href="${MATERIAL_LINK}" target="_blank">Materiales del curso</a></p>` +
+      `<p>Si tienes problemas, abre este enlace desde tu navegador o contáctame por WhatsApp.</p>` +
+      `<p>Saludos cordiales,<br>Rubimar</p>`;
+
+    MailApp.sendEmail({
+      to: email,
+      subject: subject,
+      body: plainBody,
+      htmlBody: html,
+      name: 'Rubimar Nail Art',
+      replyTo: 'rubimarnailart@gmail.com'
+    });
+
+    marcarFilaEnviada(hoja, rowNumber);
+    return true;
+  } catch (err) {
+    Logger.log('Error al enviar email de acceso: ' + err);
+    return false;
+  }
+}
+
+function marcarFilaEnviada(hoja, rowNumber) {
+  const lastCol = hoja.getLastColumn();
+  const headers = hoja.getRange(1, 1, 1, lastCol).getValues()[0].map(h => (h || '').toString().trim().toLowerCase());
+  let enviadoIdx = headers.findIndex(h => /enviad|enviado/i.test(h));
+  if (enviadoIdx === -1) {
+    enviadoIdx = headers.length;
+    hoja.getRange(1, enviadoIdx + 1).setValue('Enviado');
+  }
+  hoja.getRange(rowNumber, enviadoIdx + 1).setValue('Sí - ' + Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd HH:mm'));
+}
+
+function registrarAcceso(email, clave, estado) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const log = ss.getSheetByName('Registro accesos');
+  if (!log) return;
+  log.appendRow([new Date(), email, clave, estado]);
+}
+
+function jsonOutput(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}

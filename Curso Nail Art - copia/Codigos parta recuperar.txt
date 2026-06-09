@@ -1,0 +1,72 @@
+<button class="video-btn" onclick="${l.link ? 'window.open(\''+l.link+'\', \'_blank\')' : 'alert(\'Esta clase estará disponible pronto\')'}">
+  ${l.link ? 'Ver' : 'Próximamente'}
+</button>
+
+
+<button class="video-btn" onclick="${l.link ? 'window.open(\''+l.link+'\', \'_blank\')' : 'alert(\'Esta clase estará disponible pronto\')'}">
+  ${l.link ? 'Ver' : 'Próximamente'}
+</button>
+
+
+<p class="eyebrow">¿Encontraste algún desafío?</p>
+    <h3>Consulta a través de WhatsApp</h3>
+    <p class="desc">Estoy aquí para apoyarte. Si enfrentas un bloqueo técnico que te impide avanzar, escríbeme por WhatsApp y lo revisamos juntas. ¡Tu progreso es mi prioridad!.</p>
+
+link: "https://www.instagram.com/reel/DXD5V4fDiW6/embed/"
+
+
+
+link:"https://www.instagram.com/reel/DXD5V4fDiW6/embed/"},
+
+ link:"https://www.instagram.com/reel/DXD5V4fDiW6/?igsh=bXd5dDAlN2kwcGtL"},
+
+
+
+<div class="widget" style="background:linear-gradient(135deg,var(--roselt),var(--goldlt));border-color:#E8C0C8">
+    <div class="wtag">Guía en PDF</div>
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div style="font-size:36px">📋</div>
+      <div style="flex:1;min-width:160px">
+        <div style="font-size:13.5px;color:var(--ink);font-family:var(--font-title);margin-bottom:4px">Solicita tu Guía Completa en PDF</div>
+        <p style="font-size:12px;color:var(--ink2);line-height:1.7;margin-bottom:10px">Cuadrículas de práctica, plantillas de uñas y guías visuales listas para imprimir. Te la envío directamente por WhatsApp.</p>
+        <a href="https://wa.me/584122407829?text=Hola Rubimar, quiero mi guía de práctica en PDF" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;border-radius:9px;padding:9px 18px;text-decoration:none;font-size:12px;font-family:var(--font-body)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.571l5.887-1.543A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.031-1.386l-.361-.214-3.733.979.998-3.648-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+          Solicitar guía PDF →
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<div style="background: #fffafb; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #f0f0f0; margin-bottom: 20px;">
+    <h3 style="margin-top: 0; color: #333;">📚 Recursos de Práctica</h3>
+    <p style="color: #666;">Solicita el acceso a tus guías de estudio según tu nivel:</p>
+    
+    <a href="https://wa.me/584122407829?text=Hola%20Rubimar,%20soy%20alumna%20y%20quiero%20solicitar%20el%20acceso%20a%20mis%20guías%20de%20práctica." 
+       target="_blank" 
+       style="display: inline-block; padding: 12px 25px; background: #d15a6b; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: background 0.3s;">
+       Solicitar acceso a mis guías 💅
+    </a>
+</div>
+
+
+
+
+
+function kitCards(cat){
+  return KIT_DATA.filter(k => cat==='todos' || k.cat===cat).map(k=>`
+    <div class="kit-card">
+      <div class="kit-img"><img src="${k.emoji}" alt="${k.name}" class="foto-producto"></div>
+      <div class="kit-body">
+        <span class="kit-badge ${k.nivel}">${k.nivel==='esencial'?'⭐ Esencial':k.nivel==='recomendado'?'✓ Recomendado':'+ Avanzado'}</span>
+        <div class="kit-name">${k.name}</div>
+        <div class="kit-desc">${k.desc}</div>
+        <div class="kit-tip">Nota: ${k.tip}</div>
+        <a href="https://wa.me/584122407829?text=Hola Rubimar, quiero saber dónde conseguir: ${encodeURIComponent(k.name)}" target="_blank" class="kit-buy">🛒 ¿Dónde comprarlo?</a>
+      </div>
+    </div>`).join('');
+}
