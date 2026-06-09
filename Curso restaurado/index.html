@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nail Art — Rubimar Testa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FDFBF7;--cream2:#F7F3EC;--cream3:#EFE9DF;
+  --ink:#1A1612;--ink2:#5C5045;--ink3:#9E9080;
+  --rose:#C8546A;--roselt:#FAEEF1;--rosedark:#2E1A2E;
+  --sage:#6B9B6F;--sagelt:#EAF2EB;
+  --gold:#B8832A;--goldlt:#FBF4E3;
+  --lav:#7A72B0;--lavlt:#EDEBF7;
+  --sky:#4A7FA8;--skylt:#E4EFF7;
+  --warn:#C05030;--warnlt:#FAE8E3;
+  --teal:#3A8A8A;--teallt:#E3F2F2;
+  --plum:#2E1A2E;
+  --font-title:'Playfair Display',Georgia,serif;
+  --font-body:'DM Sans',sans-serif;
+}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);min-height:100vh;overflow-x:hidden}
+
+/* ── LOGIN ── */
+#loginScreen{position:fixed;inset:0;z-index:1000;background:linear-gradient(160deg,#1A0E12 0%,#2E1420 40%,#1A1612 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:28px 24px 20px;text-align:center;overflow-y:auto}
+.login-logo-dots{display:flex;gap:7px;justify-content:center;margin-bottom:12px}
+.login-logo-dot{width:10px;height:10px;border-radius:50%}
+.login-brand{font-size:34px;color:#fff;line-height:1.1;margin-bottom:4px;font-family:var(--font-title)}
+.login-brand span{color:#E8899A}
+.login-tagline{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:4px;font-family:var(--font-body)}
+.login-sub{font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:16px}
+.login-divider{width:40px;height:1.5px;background:#C8546A;margin:0 auto 16px;opacity:0.6}
+.logros{display:flex;flex-direction:column;gap:8px;width:100%;max-width:320px;margin-bottom:16px}
+.logro{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;text-align:left}
+.logro-icon{font-size:18px;flex-shrink:0}
+.logro h4{font-size:11.5px;color:#fff;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1px}
+.logro p{font-size:10.5px;color:rgba(255,255,255,0.4);line-height:1.4}
+.wa-login-box{background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);border-radius:12px;padding:12px 16px;width:100%;max-width:320px;margin-bottom:14px;text-align:center}
+.wa-login-box p{font-size:11.5px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:10px}
+.wa-login-box p strong{color:#25D366}
+.wa-btn-small{display:inline-flex;align-items:center;gap:8px;background:#25D366;border-radius:8px;padding:9px 18px;text-decoration:none;font-family:var(--font-body);font-size:12px;color:#fff;letter-spacing:0.04em}
+.login-form{width:100%;max-width:320px}
+.login-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;display:block}
+.login-error{background:rgba(192,80,48,0.2);border:1px solid rgba(192,80,48,0.4);border-radius:8px;padding:8px 12px;font-size:11.5px;color:#F0A090;display:none;margin-bottom:8px}
+.login-block-msg{background:rgba(192,80,48,0.25);border:1px solid rgba(192,80,48,0.5);border-radius:8px;padding:10px 12px;font-size:12px;color:#F0A090;display:none;margin-bottom:8px}
+.login-input-wrap{position:relative;margin-bottom:8px}
+.login-input{width:100%;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 44px 12px 16px;font-size:14px;color:#fff;font-family:var(--font-body);letter-spacing:0.1em;text-align:center;outline:none;transition:border-color 0.2s}
+.login-input::placeholder{color:rgba(255,255,255,0.2);font-size:12px}
+.login-input:focus{border-color:#C8546A}
+.toggle-pw{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.3);font-size:15px}
+.login-btn{width:100%;background:#C8546A;border:none;border-radius:10px;padding:13px;color:#fff;font-size:13px;font-family:var(--font-body);letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;margin-bottom:8px}
+.login-btn:hover{background:#B03050}
+.login-btn:disabled{background:#666;cursor:not-allowed}
+.login-notice{font-size:10px;color:rgba(255,255,255,0.2);line-height:1.6;font-style:italic}
+.attempt-bar{height:3px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:8px;overflow:hidden}
+.attempt-fill{height:100%;background:#C8546A;border-radius:2px;transition:width 0.3s}
+.login-social{display:flex;gap:10px;justify-content:center;margin-top:16px}
+.social-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:6px 12px;text-decoration:none}
+.social-pill span{font-size:11px;color:rgba(255,255,255,0.45);font-family:var(--font-body)}
+
+/* ── WELCOME ── */
+#welcomeScreen{position:fixed;inset:0;z-index:999;background:var(--cream);display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center;overflow-y:auto;animation:fadeUp 0.5s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.welcome-dots{display:flex;gap:8px;justify-content:center;margin-bottom:20px}
+.welcome-dot{width:10px;height:10px;border-radius:50%}
+.welcome-eyebrow{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+.welcome-title{font-size:28px;color:var(--ink);line-height:1.2;margin-bottom:8px;font-family:var(--font-title)}
+.welcome-title em{color:var(--rose);font-style:normal}
+.welcome-divider{width:36px;height:2px;background:var(--rose);margin:0 auto 20px;opacity:0.5}
+.welcome-quote{font-size:13.5px;color:var(--ink3);font-style:italic;line-height:1.8;max-width:320px;margin:0 auto 22px}
+.welcome-logros{display:flex;flex-direction:column;gap:9px;width:100%;max-width:340px;margin-bottom:20px}
+.w-logro{background:#fff;border:1px solid var(--cream3);border-radius:11px;padding:12px 16px;display:flex;align-items:center;gap:12px;text-align:left}
+.w-logro-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.w-logro h4{font-size:12px;color:var(--ink);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:2px;font-family:var(--font-body)}
+.w-logro p{font-size:11.5px;color:var(--ink3);line-height:1.45}
+.welcome-exclusive{background:var(--roselt);border:1px solid #E8C0C8;border-radius:11px;padding:12px 18px;max-width:340px;width:100%;margin-bottom:22px}
+.welcome-exclusive p{font-size:12px;color:var(--rose);line-height:1.7}
+.enter-btn{background:var(--rose);border:none;border-radius:11px;padding:14px 36px;color:#fff;font-size:13.5px;font-family:var(--font-body);letter-spacing:0.07em;cursor:pointer;transition:all 0.2s}
+.enter-btn:hover{background:#B03050}
+
+/* ── APP ── */
+#appScreen{display:none}
+.top-nav{background:var(--cream2);border-bottom:1px solid var(--cream3);position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;justify-content:space-between;padding:11px 18px 9px;border-bottom:1px solid var(--cream3)}
+.nav-left{display:flex;align-items:center;gap:7px}
+.brand-dots{display:flex;gap:5px}
+.bd{width:7px;height:7px;border-radius:50%}
+.nav-brand h1{font-size:11px;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink2);font-family:var(--font-body)}
+.nav-brand .nav-sub{font-size:10.5px;color:var(--ink3);font-style:italic}
+.lock-badge{background:var(--roselt);border:1px solid #E8C0C8;border-radius:12px;padding:3px 9px;font-size:10px;color:var(--rose)}
+.logout-btn{background:transparent;border:1px solid rgba(26,22,18,0.12);border-radius:999px;color:var(--ink2);font-size:11px;padding:6px 14px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.logout-btn:hover{background:rgba(200,84,106,0.08);border-color:rgba(200,84,106,0.22)}
+.nav-tabs{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab-btn{display:flex;align-items:center;gap:8px;padding:9px 13px;border:none;background:none;cursor:pointer;font-family:var(--font-body);font-size:11px;color:var(--ink3);border-bottom:2.5px solid transparent;white-space:nowrap;transition:all 0.2s;flex-shrink:0}
+.tab-btn.active{color:var(--rose);border-bottom-color:var(--rose)}
+.tab-icon{width:16px;height:16px;flex-shrink:0;fill:currentColor}
+.section-title{display:flex;align-items:center;gap:10px}
+.section-icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:var(--roselt);color:var(--rose);font-size:14px;flex-shrink:0}
+.gallery-dropzone{border:2px dashed var(--cream3);border-radius:16px;padding:24px;text-align:center;cursor:pointer;transition:background 0.2s,border-color 0.2s}
+.gallery-dropzone:hover{background:var(--cream3);border-color:var(--rose)}
+.gallery-dropzone strong{display:block;font-size:13px;color:var(--ink)}
+.gallery-dropzone span{font-size:12px;color:var(--ink3)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:18px}
+.gallery-card{background:#fff;border:1px solid var(--cream3);border-radius:16px;overflow:hidden;position:relative}
+.gallery-preview{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.gallery-card-info{padding:12px;font-size:12px;color:var(--ink3)}
+.pdf-preview{width:100%;height:160px;border:none;background:var(--cream2);border-radius:0 0 0 0;}
+.gallery-remove{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;border:none;background:rgba(26,22,18,0.08);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.gallery-remove:hover{background:rgba(200,84,106,0.16);color:var(--rose)}
+.gallery-empty{background:var(--cream2);border:1px dashed var(--cream3);border-radius:14px;padding:28px;text-align:center;color:var(--ink3)}
+.info-list{margin:0;padding-left:18px;color:var(--ink3);font-size:13px;line-height:1.7}
+.info-list li{margin-bottom:8px}
+.shadow-diagram{border:1px solid var(--cream3);border-radius:18px;padding:12px;display:flex;justify-content:center;align-items:center;background:var(--cream2);margin-bottom:14px}
+.circle-block{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:center}
+.circle-summary{min-width:220px;flex:1;display:flex;flex-direction:column;gap:12px}
+.grid-example-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:12px}
+.grid-card{background:var(--cream2);border:1px solid var(--cream3);border-radius:16px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.grid-card-title{font-size:12.5px;color:var(--ink);font-weight:700}
+.grid-card-svg{width:100%;max-width:180px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.grid-card-svg svg{width:100%;height:100%}
+.grid-card-desc{font-size:11.5px;color:var(--ink3);line-height:1.5}
+.combo-panel{background:var(--cream2);border:1px solid var(--cream3);border-radius:14px;padding:12px}
+.combo-title{font-size:12px;color:var(--ink);margin-bottom:8px}
+.tag-list{display:flex;flex-wrap:wrap;gap:10px}
+.tag-list span{background:var(--cream2);border:1px solid var(--cream3);border-radius:999px;padding:8px 12px;font-size:11.5px;color:var(--ink3)}
+.gallery-btn{display:inline-flex;align-items:center;justify-content:center;margin:10px 12px 12px 12px;padding:8px 12px;border-radius:999px;border:1px solid var(--cream3);background:#fff;color:var(--rose);text-decoration:none;font-size:12px}
+.pdf-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.content{max-width:720px;margin:0 auto;padding:24px 18px}
+.section-title{font-size:22px;color:var(--ink);margin-bottom:4px;font-family:var(--font-title)}
+.section-sub{font-size:12.5px;color:var(--ink3);font-style:italic;margin-bottom:22px}
+.widget{background:#fff;border:1px solid var(--cream3);border-radius:14px;padding:20px;margin-bottom:16px}
+.wtag{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:12px;display:flex;align-items:center;gap:6px;font-family:var(--font-body)}
+.wtag::before{content:'✦';font-size:10px}
+.tip-pill{display:inline-block;background:var(--goldlt);border:1px solid #E0C898;color:var(--gold);font-size:11.5px;padding:6px 14px;border-radius:18px;font-style:italic;margin-top:12px}
+
+/* ── SHARED CONTROLS ── */
+.sel-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.sel-btn{padding:6px 12px;border-radius:18px;border:1.5px solid var(--cream3);background:#fff;color:var(--ink3);font-family:var(--font-body);font-size:11.5px;cursor:pointer;transition:all 0.2s}
+.sel-btn.on{border-color:var(--rose);color:var(--rose);background:var(--roselt)}
+
+/* ── SIMULATOR ── */
+.nail-canvas{background:var(--cream2);border-radius:11px;height:110px;display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px}
+.nail-shape{width:48px;height:66px;background:var(--cream);border:2px solid var(--cream3);border-radius:24px 24px 16px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.s-line{border-radius:2px;background:#1A1612;transition:all 0.1s}
+.sim-cap{flex:1;max-width:170px}
+.sim-cap p{font-size:11.5px;color:var(--ink3);line-height:1.6;font-style:italic}
+.sl-row{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.sl-row label{font-size:11.5px;color:var(--ink3);min-width:68px}
+.sl-row input[type=range]{flex:1;accent-color:var(--rose)}
+.sl-row span{font-size:11.5px;color:var(--ink2);min-width:30px;text-align:right}
+.p-ends{display:flex;justify-content:space-between;font-size:10px;color:var(--ink3);font-style:italic;margin-bottom:8px}
+.p-msg{font-size:12px;text-align:center;font-style:italic;padding:7px 12px;border-radius:7px;transition:all 0.2s}
+.warn-pill{background:var(--warnlt);border:1px solid #E0B0A0;border-radius:7px;padding:8px 12px;display:none;font-size:11.5px;color:var(--warn);margin-top:7px}
+
+/* ── LAYERS ── */
+.layer-stage{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:16px}
+.nail-tip-wrap{width:84px;height:118px;flex-shrink:0}
+.layer-info{flex:1;min-width:150px;max-width:210px}
+.layer-name{font-size:14px;color:var(--ink);margin-bottom:3px;font-family:var(--font-title)}
+.layer-desc{font-size:12px;color:var(--ink2);line-height:1.6}
+.lsteps{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.lstep{flex:1;min-width:68px;padding:6px 7px;border-radius:7px;font-size:10.5px;text-align:center;border:1.5px solid var(--cream3);color:var(--ink3);cursor:pointer;transition:all 0.2s;background:#fff}
+.lstep.on{border-color:var(--rose);color:var(--rose);background:var(--roselt)}
+
+/* ── GEL ── */
+.gel-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.gel-btn{padding:11px 6px;border:2px solid var(--cream3);border-radius:11px;background:#fff;cursor:pointer;font-family:var(--font-body);text-align:center;transition:all 0.2s}
+.gel-btn.sel{border-color:var(--rose);background:var(--roselt)}
+.gel-icon{font-size:24px;margin-bottom:4px}
+.gel-lbl{font-size:11px;color:var(--ink2)}
+.gel-result{background:var(--cream2);border-radius:11px;padding:14px 16px}
+.gel-recipe{font-size:12.5px;color:var(--ink2);line-height:1.7}
+.gel-recipe strong{color:var(--rose)}
+
+/* ── COLOR WHEEL ── */
+.circle-wrap{display:flex;justify-content:center;margin-bottom:16px}
+.sel-color-info{background:var(--cream2);border-radius:11px;padding:13px 16px;display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.sel-sw{width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.12);flex-shrink:0;transition:background 0.2s}
+.sel-info h4{font-size:13px;color:var(--ink);margin-bottom:2px;font-family:var(--font-title)}
+.sel-info p{font-size:11.5px;color:var(--ink2);line-height:1.55}
+.combo-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+.combo-chip{display:flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--cream3);border-radius:18px;padding:4px 10px}
+.combo-dot{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,0.1);flex-shrink:0}
+.combo-lbl{font-size:10.5px;color:var(--ink3)}
+
+/* ── TEMP ── */
+.temp-toggle{display:flex;background:var(--cream2);border-radius:9px;padding:3px;margin-bottom:16px}
+.temp-btn{flex:1;padding:8px;border:none;background:none;border-radius:6px;font-family:var(--font-body);font-size:11.5px;cursor:pointer;transition:all 0.2s;color:var(--ink3)}
+.temp-btn.sw{background:#FFF0E0;color:#B04020;font-style:italic}
+.temp-btn.sc{background:#E8F0FF;color:#204880;font-style:italic}
+.temp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:13px}
+.temp-card{padding:11px 7px;border-radius:9px;text-align:center}
+.t-circle{width:40px;height:40px;border-radius:50%;margin:0 auto 6px;border:2px solid rgba(0,0,0,0.08)}
+.t-name{font-size:11px;line-height:1.4}
+.temp-rule{padding:11px 14px;border-radius:9px;font-size:12px;line-height:1.7}
+
+/* ── MEZCLAS ── */
+.mezcla-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
+.mezcla-card{background:#fff;border:1px solid var(--cream3);border-radius:9px;padding:11px;display:flex;align-items:center;gap:9px;cursor:pointer;transition:all 0.2s}
+.mezcla-card:hover,.mezcla-card.sel{border-color:var(--rose);background:var(--roselt)}
+.m-preview{display:flex;align-items:center;gap:2px;flex-shrink:0}
+.m-dot{width:17px;height:17px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.1)}
+.m-eq{font-size:10px;color:var(--ink3);margin:0 1px}
+.m-res{width:22px;height:22px;border-radius:50%;border:2px solid rgba(0,0,0,0.12)}
+.m-txt{font-size:11px;color:var(--ink2);line-height:1.45}
+.mezcla-detail{background:var(--cream2);border-radius:10px;padding:13px 16px;margin-top:11px;display:none}
+.mezcla-detail.show{display:block}
+.mezcla-detail h4{font-size:13px;color:var(--ink);margin-bottom:4px;font-family:var(--font-title)}
+.mezcla-detail p{font-size:12.5px;color:var(--ink2);line-height:1.7}
+
+/* ── CONTRASTE ── */
+.contrast-layout{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;margin-bottom:15px}
+.nail-demo{width:62px;height:88px;border-radius:34px 34px 20px 20px;border:3px solid #1A1612;display:flex;align-items:center;justify-content:center;transition:background 0.25s;flex-shrink:0}
+.cartoon-f{display:flex;flex-direction:column;align-items:center;gap:3px}
+.c-eyes{display:flex;gap:6px}
+.c-eye{width:5px;height:6px;background:#1A1612;border-radius:50%}
+.c-mouth{width:12px;height:6px;border:2px solid #1A1612;border-top:none;border-radius:0 0 9px 9px}
+.contrast-info{flex:1;min-width:130px}
+.contrast-info h4{font-size:13px;color:var(--ink);margin-bottom:4px;font-family:var(--font-title)}
+.contrast-info p{font-size:11.5px;color:var(--ink2);line-height:1.6}
+.c-badge{display:inline-block;padding:2px 10px;border-radius:9px;font-size:10px;letter-spacing:0.05em;margin-top:4px}
+.color-pal{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.cp-btn{height:34px;border-radius:7px;border:2.5px solid transparent;cursor:pointer;transition:all 0.2s;position:relative}
+.cp-btn:hover{transform:scale(1.08)}
+.cp-btn.sel::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.6)}
+
+/* ── QUIZ ── */
+.quiz-card{background:#fff;border:1px solid var(--cream3);border-radius:13px;padding:18px;margin-bottom:14px}
+.quiz-q{font-size:13.5px;color:var(--ink);margin-bottom:14px;line-height:1.5;font-family:var(--font-title)}
+.quiz-opts{display:flex;flex-direction:column;gap:7px}
+.quiz-opt{padding:10px 14px;border-radius:9px;border:1.5px solid var(--cream3);background:#fff;color:var(--ink2);font-size:12.5px;font-family:var(--font-body);cursor:pointer;transition:all 0.2s;text-align:left}
+.quiz-opt:hover{border-color:var(--rose);background:var(--roselt)}
+.quiz-opt.correct{border-color:var(--sage);background:var(--sagelt);color:var(--sage)}
+.quiz-opt.wrong{border-color:var(--warn);background:var(--warnlt);color:var(--warn)}
+.quiz-opt:disabled{cursor:not-allowed}
+.quiz-feedback{padding:10px 14px;border-radius:9px;font-size:12px;line-height:1.6;margin-top:10px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:var(--sagelt);color:var(--sage)}
+.quiz-feedback.bad{background:var(--warnlt);color:var(--warn)}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.quiz-prog{font-size:11px;color:var(--ink3)}
+.q-next-btn{background:var(--rose);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:12px;font-family:var(--font-body);cursor:pointer;transition:all 0.2s;display:none}
+.q-next-btn.show{display:block}
+.q-next-btn:hover{background:#B03050}
+.quiz-result-panel{background:linear-gradient(135deg,var(--plum),#1A1612);border-radius:14px;padding:24px;text-align:center;display:none}
+.quiz-result-panel.show{display:block}
+.quiz-result-panel h3{font-family:var(--font-title);color:#fff;font-size:22px;margin-bottom:8px}
+.quiz-result-panel p{color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin-bottom:16px}
+.quiz-stars{font-size:28px;margin-bottom:10px}
+
+/* ── KIT ── */
+.kit-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.kf-btn{padding:6px 14px;border-radius:18px;border:1.5px solid var(--cream3);background:#fff;color:var(--ink3);font-family:var(--font-body);font-size:11.5px;cursor:pointer;transition:all 0.2s}
+.kf-btn.on{border-color:var(--rose);color:var(--rose);background:var(--roselt)}
+.kit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.kit-card {
+  background: #fff;
+  border: 1px solid var(--cream3);
+  border-radius: 13px;
+  overflow: hidden;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+}
+.kit-card:hover{border-color:var(--rose);box-shadow:0 4px 16px rgba(200,84,106,0.12);transform:translateY(-2px)}
+.kit-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 140px;
+  background: var(--cream2);
+  padding: 10px;
+}
+
+.kit-img img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+@media (min-width: 768px) {
+  .kit-img img {
+    width: 115px;
+    height: 115px;
+  }
+}
+
+.kit-body{padding:11px 12px}
+.kit-badge{display:inline-block;font-size:9.5px;padding:2px 8px;border-radius:9px;margin-bottom:5px;letter-spacing:0.04em}
+.kit-badge.esencial{background:#FAEEF1;color:var(--rose)}
+.kit-badge.recomendado{background:var(--goldlt);color:var(--gold)}
+.kit-badge.avanzado{background:var(--lavlt);color:var(--lav)}
+.kit-name{font-size:12.5px;color:var(--ink);margin-bottom:3px;font-family:var(--font-title)}
+.kit-desc{font-size:11px;color:var(--ink3);line-height:1.5;margin-bottom:8px}
+.kit-tip{background:var(--goldlt);border-radius:6px;padding:5px 8px;font-size:10.5px;color:var(--gold);margin-bottom:8px;font-style:italic}
+.kit-buy{display:block;width:100%;background:var(--ink);color:#fff;border:none;border-radius:8px;padding:7px;font-size:11px;font-family:var(--font-body);cursor:pointer;text-align:center;text-decoration:none;transition:all 0.2s}
+.kit-buy:hover{background:var(--rose)}
+
+/* ── CUADRÍCULAS ── */
+.grid-size-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.gsz-btn{padding:7px 14px;border-radius:18px;border:1.5px solid var(--cream3);background:#fff;color:var(--ink3);font-family:var(--font-body);font-size:11.5px;cursor:pointer;transition:all 0.2s}
+.gsz-btn.on{border-color:var(--rose);color:var(--rose);background:var(--roselt)}
+.grid-canvas{background:#fff;border:1px solid var(--cream3);border-radius:11px;overflow:hidden;margin-bottom:12px}
+
+/* ── GUÍAS NATURALES ── */
+.natural-note{background:linear-gradient(135deg,var(--roselt),var(--lavlt));border:1.5px solid #E8C0C8;border-radius:14px;padding:20px 22px;text-align:center;margin-bottom:16px}
+.natural-note .nn-icon{font-size:32px;margin-bottom:10px}
+.natural-note h3{font-family:var(--font-title);color:var(--ink);font-size:17px;margin-bottom:8px}
+.natural-note p{font-size:12.5px;color:var(--ink2);line-height:1.8}
+.natural-note .nn-accent{color:var(--rose);font-weight:500}
+
+/* ── PLANTILLAS ── */
+.plantilla-nav{display:flex;gap:0;background:var(--cream2);border-radius:9px;padding:3px;margin-bottom:16px}
+.pnav-btn{flex:1;padding:8px 6px;border:none;background:none;border-radius:6px;font-family:var(--font-body);font-size:11px;cursor:pointer;transition:all 0.2s;color:var(--ink3);text-align:center}
+.pnav-btn.on{background:#fff;color:var(--rose);box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+.plantilla-display{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.nail-preview-wrap{position:relative;width:130px;flex-shrink:0;user-select:none;-webkit-user-select:none}
+.plantilla-info{flex:1;min-width:150px}
+.plantilla-info h3{font-size:14px;color:var(--ink);margin-bottom:5px;font-family:var(--font-title)}
+.plantilla-info p{font-size:12px;color:var(--ink2);line-height:1.7;margin-bottom:10px}
+.protected-note{background:var(--roselt);border:1px solid #E8C0C8;border-radius:9px;padding:10px 13px;font-size:11px;color:var(--rose);line-height:1.65}
+.ruler-note{background:var(--goldlt);border:1px solid #E0C898;border-radius:9px;padding:10px 13px;font-size:11px;color:var(--gold);line-height:1.65;margin-top:8px}
+
+/* ── MÓDULOS ── */
+.modulo-header{background:linear-gradient(135deg,var(--plum),#1A1612);border-radius:14px;padding:20px;margin-bottom:16px;text-align:center}
+.modulo-header h2{font-family:var(--font-title);color:#fff;font-size:20px;margin-bottom:6px}
+.modulo-header p{font-size:12px;color:rgba(255,255,255,0.5);font-style:italic}
+.modulo-progress{background:rgba(255,255,255,0.1);border-radius:10px;height:6px;margin-top:14px;overflow:hidden}
+.modulo-progress-fill{height:100%;background:var(--rose);border-radius:10px;transition:width 0.5s}
+.modulo-card{background:#fff;border:1px solid var(--cream3);border-radius:11px;padding:13px 16px;display:flex;align-items:center;gap:12px;transition:all 0.2s;margin-bottom:8px;cursor:pointer}
+.modulo-card:hover{border-color:var(--rose);transform:translateY(-1px);box-shadow:0 3px 12px rgba(200,84,106,0.1)}
+.mod-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-family:var(--font-body);flex-shrink:0}
+.mod-text h4{font-size:13px;color:var(--ink);margin-bottom:2px;font-family:var(--font-title)}
+.mod-text p{font-size:11px;color:var(--ink3);font-style:italic}
+.mod-status{flex-shrink:0;font-size:10px;padding:3px 10px;border-radius:9px;letter-spacing:0.05em}
+.lesson-panel{background:var(--cream2);border-radius:11px;padding:16px;margin-top:8px;display:none;animation:fadeUp 0.3s ease}
+.lesson-panel.open{display:block}
+.lesson-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#fff;border-radius:8px;margin-bottom:6px;border:1px solid var(--cream3)}
+.lesson-num{width:22px;height:22px;border-radius:50%;background:var(--roselt);color:var(--rose);font-size:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lesson-text{flex:1;font-size:12px;color:var(--ink2)}
+.lesson-tag{font-size:10px;color:var(--ink3);font-style:italic}
+.coming-badge{background:var(--goldlt);border:1px solid #E0C898;color:var(--gold);font-size:10px;padding:2px 8px;border-radius:8px}
+.video-btn{background:var(--rose);color:#fff;border:none;border-radius:7px;padding:6px 12px;font-size:11px;font-family:var(--font-body);cursor:pointer;transition:all 0.2s}
+.video-btn:hover{background:#B03050}
+
+/* ── PANTALLA DE CIERRE ── */
+.cierre-screen{background:linear-gradient(160deg,#1A0E12 0%,#2E1420 50%,#1A1612 100%);border-radius:16px;padding:32px 24px;text-align:center;margin-bottom:24px}
+.cierre-dots{display:flex;gap:8px;justify-content:center;margin-bottom:20px}
+.cierre-dot{width:8px;height:8px;border-radius:50%}
+.cierre-icon{font-size:44px;margin-bottom:16px}
+.cierre-title{font-family:var(--font-title);font-size:22px;color:#fff;line-height:1.3;margin-bottom:16px}
+.cierre-msg{font-size:13.5px;color:rgba(255,255,255,0.65);line-height:1.9;font-style:italic;max-width:340px;margin:0 auto 24px;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);padding:18px 0}
+.cierre-cta-title{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px}
+.cierre-wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;border-radius:12px;padding:14px 28px;text-decoration:none;transition:all 0.2s;margin-bottom:12px}
+.cierre-wa-btn:hover{background:#1DA855;transform:translateY(-1px)}
+.cierre-wa-btn span{color:#fff;font-family:var(--font-body);font-size:13px;letter-spacing:0.04em}
+.cierre-ig-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:12px 24px;text-decoration:none;transition:all 0.2s;margin-left:8px}
+.cierre-ig-btn:hover{background:rgba(255,255,255,0.14)}
+.cierre-ig-btn span{color:rgba(255,255,255,0.8);font-family:var(--font-body);font-size:13px}
+.cierre-btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.cierre-firma{margin-top:20px;font-size:11px;color:rgba(255,255,255,0.2);font-style:italic}
+
+/* ── WA CTA ── */
+.wa-cta{background:linear-gradient(135deg,#1A1612,var(--plum));border-radius:14px;padding:22px 18px;text-align:center;margin-top:4px}
+.wa-cta p.eyebrow{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px}
+.wa-cta h3{font-size:18px;color:#fff;margin-bottom:5px;font-family:var(--font-title)}
+.wa-cta p.desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:16px;font-style:italic}
+.wa-big-btn{display:inline-flex;align-items:center;gap:9px;background:#25D366;border-radius:11px;padding:13px 26px;text-decoration:none;transition:all 0.2s}
+.wa-big-btn:hover{background:#1DA855;transform:translateY(-1px)}
+.wa-big-btn span{color:#fff;font-family:var(--font-body);font-size:13px;letter-spacing:0.04em}
+
+/* ── FOOTER ── */
+.app-footer{background:var(--cream2);border-top:1px solid var(--cream3);padding:16px 18px;text-align:center}
+.footer-social{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.spl{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--cream3);border-radius:18px;padding:7px 14px;text-decoration:none;transition:all 0.2s}
+.spl:hover{border-color:var(--rose)}
+.spl span{font-size:11.5px;color:var(--ink2);font-family:var(--font-body)}
+.footer-copy{font-size:10px;color:var(--ink3);font-style:italic}
+
+@media(max-width:580px){
+  .content{padding:16px 12px}
+  .kit-grid{grid-template-columns:repeat(2,1fr)}
+  .section-title{font-size:18px}
+  .cierre-btns{flex-direction:column;align-items:center}
+  .cierre-ig-btn{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ LOGIN ══════════ -->
+<div id="loginScreen">
+  <div class="login-logo-dots">
+    <div class="login-logo-dot" style="background:#C8546A"></div>
+    <div class="login-logo-dot" style="background:#B8832A"></div>
+    <div class="login-logo-dot" style="background:#7A72B0"></div>
+  </div>
+  <p class="login-tagline">Creado por</p>
+  <h1 class="login-brand">Rubimar<br><span></span></h1>
+  <p style="font-size:15px;color:rgba(255,255,255,0.55);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:4px;font-family:var(--font-body)">Nail Art</p>
+  <p class="login-sub">Cartoons · Princesas · Diseños Libres · Realismo</p>
+  <div class="login-divider"></div>
+  <div class="logros">
+    <div class="logro"><div class="logro-icon">★</div><div><h4>Dominar el pulso</h4><p>Trazos súper finos y definidos</p></div></div>
+    <div class="logro"><div class="logro-icon">★</div><div><h4>Crear sin límites</h4><p>Dibuja cualquier personaje</p></div></div>
+    <div class="logro"><div class="logro-icon">★</div><div><h4>Darle vida al arte</h4><p>Color, luz, sombra y gradientes</p></div></div>
+  </div>
+  <div class="wa-login-box">
+    <p>¿Quieres acceder al curso?<br>Escribe la palabra <strong>CURSO</strong> vía WhatsApp y recibe tu clave tras confirmar el pago.</p>
+    <a href="https://wa.me/584122407829?text=CURSO" target="_blank" class="wa-btn-small">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.571l5.887-1.543A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.031-1.386l-.361-.214-3.733.979.998-3.648-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+      Solicitar acceso → CURSO
+    </a>
+  </div>
+  <div class="login-form">
+    <label class="login-label">Ya tengo mi correo y clave de acceso</label>
+    
+    <div class="login-block-msg" id="blockMsg" style="display:none;">Demasiados intentos. Espera <span id="blockTimer">30</span> segundos.</div>
+    <div class="login-error" id="loginError" style="display:none;">Clave incorrecta - <span id="attemptsLeft">3</span> intentos restantes.</div>
+    <div class="attempt-bar"><div class="attempt-fill" id="attemptFill" style="width:0%;"></div></div>
+
+    <input type="email" id="emailInput" placeholder="Tu correo electrónico" class="login-input" style="width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box;">
+
+    <div style="position: relative; width: 100%; margin-bottom: 10px;">
+        <input type="password" id="pwInput" placeholder="Ingresa tu clave" class="login-input" style="width: 100%; padding: 10px; box-sizing: border-box;">
+        <button type="button" onclick="togglePw()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 12px; color:var(--ink3);">Ver</button>
+    </div>
+
+    <button class="login-btn" id="loginBtn" onclick="tryLogin()">Entrar al curso →</button>
+</div>
+<script>
+  function togglePw() {
+    var x = document.getElementById("pwInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+</script>
+  <div class="login-social" style="margin-top:14px">
+    <a href="https://instagram.com/rubimartesta" target="_blank" class="social-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="ig1" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig1)"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8" fill="none"/><circle cx="17.2" cy="6.8" r="1.2" fill="white"/></svg>
+      <span>@rubimartesta</span>
+    </a>
+    <a href="https://tiktok.com/@rubimartesta" target="_blank" class="social-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+      <span>@rubimartesta</span>
+    </a>
+  </div>
+</div>
+
+<!-- ══════════ WELCOME ══════════ -->
+<div id="welcomeScreen">
+  <div class="welcome-dots">
+    <div class="welcome-dot" style="background:var(--rose)"></div>
+    <div class="welcome-dot" style="background:var(--gold)"></div>
+    <div class="welcome-dot" style="background:var(--lav)"></div>
+  </div>
+  <p class="welcome-eyebrow">Bienvenidos al curso</p>
+  <h2 class="welcome-title">Transforma ideas<br>en <em>arte</em></h2>
+  <div class="welcome-divider"></div>
+  <p class="welcome-quote">ESTE CURSO <br> "No está diseñado desde la perfección académica".<br>Está diseñado desde la <strong>experiencia real</strong>. <br>¡Así me funcionó a mí!</p>
+  <div class="welcome-logros">
+    <div class="w-logro"><div class="w-logro-icon" style="background:var(--roselt)">★</div><div><h4>Dominar el pulso</h4><p>Trazos súper finos con total seguridad</p></div></div>
+    <div class="w-logro"><div class="w-logro-icon" style="background:var(--lavlt)">★</div><div><h4>Crear sin límites</h4><p>Mi método para dibujar cualquier personaje</p></div></div>
+    <div class="w-logro"><div class="w-logro-icon" style="background:var(--goldlt)">★</div><div><h4>Darle vida al arte</h4><p>Colores, mezclas, luces y gradientes</p></div></div>
+  </div>
+  <div class="welcome-exclusive"><p> <strong>RECUERDA <br>Acceso personal e intransferible.</strong><br>Eres parte de una comunidad especial — CUÍDALA.</p></div>
+  <button class="enter-btn" onclick="enterApp()">Comenzar →</button>
+</div>
+
+<!-- ══════════ APP ══════════ -->
+<div id="appScreen">
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <div class="nav-left">
+        <div class="brand-dots"><div class="bd" style="background:var(--rose)"></div><div class="bd" style="background:var(--gold)"></div></div>
+        <h1>Nail Art</h1><span class="nav-sub"> · Rubimar Testa</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="lock-badge">Exclusivo</div>
+        <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
+      </div>
+    </div>
+    <div class="nav-tabs" id="tabs"></div>
+  </nav>
+  <div class="content" id="content"></div>
+  <footer class="app-footer">
+    <div class="footer-social">
+      <a href="https://instagram.com/rubimartesta" target="_blank" class="spl">
+        <svg width="15" height="15" viewBox="0 0 24 24"><defs><linearGradient id="ig2" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig2)"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8" fill="none"/><circle cx="17.2" cy="6.8" r="1.2" fill="white"/></svg>
+        <span>@rubimartesta</span>
+      </a>
+      <a href="https://tiktok.com/@rubimartesta" target="_blank" class="spl">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#1A1612"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+        <span>@rubimartesta</span>
+      </a>
+    </div>
+    <p class="footer-copy">Nail Art · Creado por Rubimar  · Transforma ideas en arte</p>
+  </footer>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+async function tryLogin() {
+  const val = document.getElementById('pwInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+  const url = "https://script.google.com/macros/s/AKfycbz2nJDiOFWln-R6BifTc3TEFpaAVZalzlxhuNQeqiIIkkf14ODU2Ij7mgDbyulQPsfi/exec";
+  const loginButton = document.getElementById('loginBtn');
+
+  if (email === "") {
+    showLoginError('Por favor escribe tu correo');
+    return;
+  }
+  if (!isValidEmail(email)) {
+    showLoginError('Por favor ingresa un correo válido');
+    return;
+  }
+  if (val === "") {
+    showLoginError('Por favor ingresa tu clave');
+    return;
+  }
+
+  if (loginButton) loginButton.disabled = true;
+
+  const params = new URLSearchParams();
+  params.append('clave', val);
+  params.append('password', val);
+  params.append('email', email);
+
+  try {
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: params.toString()
+    });
+
+    const text = await resp.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (err) {
+      data = text;
+    }
+
+    const statusRaw = data && typeof data === 'object'
+      ? data.status || data.estado || data.result || data.ok || data.success || ''
+      : data;
+    const status = String(statusRaw || '').trim().toLowerCase();
+    const success = status === 'ok' || status === 'success' || status === '1' || status === 'true' || status === 'okey';
+
+    if (success || /ok/.test(status)) {
+      currentUserEmail = email.toLowerCase();
+      saveCurrentUser(currentUserEmail);
+      loadUserData(currentUserEmail);
+      clearLoginError();
+      saveUserData(currentUserEmail);
+      showWelcome();
+    } else {
+      showLoginError('Clave incorrecta.');
+      logout();
+    }
+  } catch (err) {
+    console.error('Fetch error:', err);
+    showLoginError('Error de red. Intenta de nuevo.');
+    logout();
+  } finally {
+    if (loginButton) loginButton.disabled = false;
+  }
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showLoginError(message) {
+  const le = document.getElementById('loginError');
+  if (le) {
+    le.style.display = 'block';
+    le.textContent = message;
+  }
+}
+
+function clearLoginError() {
+  const le = document.getElementById('loginError');
+  if (le) {
+    le.style.display = 'none';
+    le.textContent = '';
+  }
+}
+
+function showWelcome() {
+  const loginScreen = document.getElementById('loginScreen');
+  if (loginScreen) loginScreen.style.display = 'none';
+  const welcomeScreen = document.getElementById('welcomeScreen');
+  if (welcomeScreen) welcomeScreen.style.display = 'flex';
+  const appScreen = document.getElementById('appScreen');
+  if (appScreen) appScreen.style.display = 'none';
+}
+
+function getStorageKey(email) {
+  return `nailart_user_${email}`;
+}
+
+function saveCurrentUser(email) {
+  localStorage.setItem('nailart_current_user', email);
+}
+
+function clearCurrentUser() {
+  localStorage.removeItem('nailart_current_user');
+}
+
+function saveUserData(email) {
+  if (!email) return;
+  const key = getStorageKey(email);
+  try {
+    const payload = JSON.stringify({ pdfItems, galleryImages });
+    localStorage.setItem(key, payload);
+  } catch (err) {
+    console.warn('No se pudo guardar datos de usuario:', err);
+  }
+}
+
+function loadUserData(email) {
+  if (!email) return;
+  const key = getStorageKey(email);
+  const raw = localStorage.getItem(key);
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    pdfItems.splice(0, pdfItems.length, ...(data.pdfItems || []));
+    galleryImages.splice(0, galleryImages.length, ...(data.galleryImages || []));
+  } catch (err) {
+    console.warn('No se pudo cargar datos de usuario:', err);
+  }
+}
+
+function removeUserData(email) {
+  if (!email) return;
+  const key = getStorageKey(email);
+  localStorage.removeItem(key);
+}
+
+function togglePw() {
+  const i = document.getElementById('pwInput');
+  i.type = (i.type === 'password') ? 'text' : 'password';
+}
+
+function enterApp() {
+  const loginScreen = document.getElementById('loginScreen');
+  if (loginScreen) loginScreen.style.display = 'none';
+  const welcomeScreen = document.getElementById('welcomeScreen');
+  if (welcomeScreen) welcomeScreen.style.display = 'none';
+  const appScreen = document.getElementById('appScreen');
+  if (appScreen) appScreen.style.display = 'block';
+  buildTabs();
+  renderSection();
+}
+
+function logout(){
+  document.getElementById('appScreen').style.display = 'none';
+  document.getElementById('welcomeScreen').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  galleryImages.length = 0;
+  pdfItems.length = 0;
+  currentUserEmail = '';
+  clearCurrentUser();
+  curTab = 'kit';
+  buildTabs();
+  renderSection();
+  document.getElementById('pwInput').value = '';
+  document.getElementById('emailInput').value = '';
+}
+
+function restoreSession() {
+  const stored = localStorage.getItem('nailart_current_user');
+  if (!stored) return;
+  const emailInput = document.getElementById('emailInput');
+  if (emailInput) emailInput.value = stored;
+}
+
+let currentUserEmail = '';
+const pdfItems = [];
+const galleryImages = [];
+const MAX_PDF_SIZE = 50 * 1024 * 1024; // 50 MB
+const MAX_PDF_COUNT = 500;
+let curTab = 'kit';
+function renderTrabajos(){
+  return `<h2 class="section-title"><span class="section-icon">${ICONS.trabajos}</span>Mis trabajos</h2>
+  <p class="section-sub">Aquí podrás subir cada unos de tus trabajos prácticos y seran observados solo por ti.</p>
+  <div class="widget">
+    <div class="wtag">Galería personal del alumno</div>
+    <div class="gallery-dropzone" id="galleryDropzone" onclick="document.getElementById('galleryUploadInput').click()" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event)">
+      <strong>Haz clic o arrastra tus imágenes aquí</strong>
+      <span>Selecciona hasta 1000 archivos JPG, JPEG o PNG.</span>
+    </div>
+    <input type="file" id="galleryUploadInput" accept="image/*" multiple style="display:none" onchange="handleGalleryFiles(event)">
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-empty">Aún no hay imágenes. Sube una para que aparezca en tu galería.</div>
+    </div>
+  </div>`;
+} 
+
+function renderLuzSombra(){
+  return `<h2 class="section-title"><span class="section-icon">${ICONS.luz_sombra}</span>Luz y sombras</h2>
+  <p class="section-sub">Imágenes directas de foco y sombra para tus diseños.</p>
+  <div class="widget">
+    <div class="wtag">Ejemplo: foco frontal</div>
+    <div class="shadow-diagram"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#F5E9E1"/></linearGradient></defs><rect x="0" y="0" width="240" height="140" rx="18" fill="url(#g1)"/><circle cx="120" cy="50" r="24" fill="#F5E030"/><ellipse cx="120" cy="104" rx="60" ry="14" fill="#E0D1C8" opacity="0.7"/><line x1="120" y1="20" x2="120" y2="0" stroke="#1A1612" stroke-width="2" marker-end="url(#arr)"/><defs><marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1A1612"/></marker></defs></svg></div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Ejemplo: foco lateral</div>
+    <div class="shadow-diagram"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="240" height="140" rx="18" fill="#F8F1EA"/><circle cx="78" cy="58" r="24" fill="#F5E030"/><ellipse cx="130" cy="84" rx="52" ry="12" fill="#D9C6B7" opacity="0.75"/><line x1="38" y1="38" x2="18" y2="18" stroke="#1A1612" stroke-width="2" marker-end="url(#arr2)"/><defs><marker id="arr2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1A1612"/></marker></defs></svg></div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Ejemplo: foco superior</div>
+    <div class="shadow-diagram"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="240" height="140" rx="18" fill="#F3F4F2"/><circle cx="120" cy="50" r="24" fill="#F5E030"/><ellipse cx="120" cy="96" rx="62" ry="8" fill="#CDC2B8" opacity="0.8"/><line x1="120" y1="16" x2="120" y2="0" stroke="#1A1612" stroke-width="2" marker-end="url(#arr3)"/><defs><marker id="arr3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1A1612"/></marker></defs></svg></div>
+  </div>`;
+}
+
+function renderPDFs(){
+  return `<h2 class="section-title"><span class="section-icon">${ICONS.pdfs}</span>Plantillas PDF</h2>
+  <p class="section-sub">Sube tus plantillas PDF y conserva tu estructura de trabajo en forma profesional.</p>
+  <div class="widget">
+    <div class="wtag">Plantillas propias</div>
+    <div class="gallery-dropzone" id="pdfDropzone" onclick="document.getElementById('pdfUploadInput').click()" ondragover="event.preventDefault()" ondrop="handlePDFDrop(event)">
+      <strong>Haz clic o arrastra tus archivos PDF aquí</strong>
+      <span>Soporta plantillas, bocetos y guías. Hasta 50 MB por archivo.</span>
+    </div>
+    <input type="file" id="pdfUploadInput" accept="application/pdf" multiple style="display:none" onchange="handlePDFFiles(event)">
+  </div>
+  <div class="widget">
+      <div class="wtag">Archivos PDF</div>
+      <p style="font-size:12px;color:var(--ink3);margin-bottom:12px">Carga y administra tus plantillas con vista previa de portada.</p>
+      <div id="pdfError" class="gallery-empty" style="display:none;background:#FDECEA;color:#B03030;border-color:#F5C6C3; border-style:solid; border-width:1px; margin-bottom:12px;"></div>
+      <div class="pdf-list" id="pdfList">
+        <div class="gallery-empty">No hay archivos PDF aún. Sube uno para verlo aquí.</div>
+      </div>
+    </div>`;
+}
+
+function handlePDFDrop(event){
+  event.preventDefault();
+  const files = Array.from(event.dataTransfer.files);
+  handlePDFFiles({target:{files}});
+}
+
+function handlePDFFiles(event){
+  const files = Array.from(event.target.files || []);
+  const validFiles = [];
+  files.forEach(file => {
+    if (file.type !== 'application/pdf') return;
+    if (file.size > MAX_PDF_SIZE) {
+      showPDFError(`El archivo «${file.name}» supera el límite de 50 MB.`);
+      return;
+    }
+    if (pdfItems.length + validFiles.length >= MAX_PDF_COUNT) return;
+    validFiles.push(file);
+  });
+  if(validFiles.length === 0) {
+    if(pdfItems.length === 0) renderPDFList();
+    return;
+  }
+  clearPDFError();
+  validFiles.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      pdfItems.push({url:e.target.result, name:file.name, size:formatFileSize(file.size)});
+      renderPDFList();
+      if (currentUserEmail) saveUserData(currentUserEmail);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function showPDFError(message) {
+  const errorEl = document.getElementById('pdfError');
+  if (errorEl) {
+    errorEl.style.display = 'block';
+    errorEl.textContent = message;
+  }
+}
+
+function clearPDFError() {
+  const errorEl = document.getElementById('pdfError');
+  if (errorEl) {
+    errorEl.style.display = 'none';
+    errorEl.textContent = '';
+  }
+}
+
+function formatFileSize(bytes) {
+  if (bytes === 0) return '0 B';
+  const k = 1024;
+  const sizes = ['B', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+}
+
+function renderPDFList(){
+  const container = document.getElementById('pdfList');
+  if(!container) return;
+  if(pdfItems.length === 0){
+    container.innerHTML = `<div class="gallery-empty">No hay archivos PDF aún. Sube uno para verlo aquí.</div>`;
+    return;
+  }
+  container.innerHTML = pdfItems.map((pdf,i) => `
+    <div class="gallery-card">
+      <button class="gallery-remove" onclick="removePDF(${i})" aria-label="Eliminar PDF">×</button>
+      <object class="pdf-preview" data="${pdf.url}" type="application/pdf" title="${pdf.name}">
+        <div style="padding:20px;color:var(--ink3);font-size:12px;">Vista previa no disponible. Abre el PDF desde el botón.</div>
+      </object>
+      <div class="gallery-card-info">
+        <strong>${pdf.name || 'PDF sin título'}</strong>
+        <div style="font-size:11px;color:var(--ink3);margin-top:4px">${pdf.size}</div>
+      </div>
+      <a class="gallery-btn" href="${pdf.url}" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
+    </div>
+  `).join('');
+}
+
+function removePDF(index){
+  pdfItems.splice(index,1);
+  renderPDFList();
+  if (currentUserEmail) saveUserData(currentUserEmail);
+}
+
+function handleGalleryDrop(event){
+  event.preventDefault();
+  const files = Array.from(event.dataTransfer.files);
+  handleGalleryFiles({target:{files}});
+}
+
+function handleGalleryFiles(event){
+  const files = Array.from(event.target.files || []).filter(f => f.type.startsWith('image/')).slice(0, 200 - galleryImages.length);
+  if(files.length === 0) return;
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      galleryImages.push({src:e.target.result, name:file.name});
+      renderGallery();
+      if (currentUserEmail) saveUserData(currentUserEmail);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderGallery(){
+  const grid = document.getElementById('galleryGrid');
+  if(!grid) return;
+  if(galleryImages.length === 0){
+    grid.innerHTML = `<div class="gallery-empty">Aún no hay imágenes. Sube una para que aparezca en tu galería.</div>`;
+    return;
+  }
+  grid.innerHTML = galleryImages.map((img,i) => `
+    <div class="gallery-card">
+      <button class="gallery-remove" onclick="removeGallery(${i})" aria-label="Eliminar imagen">×</button>
+      <img class="gallery-preview" src="${img.src}" alt="Trabajo ${i+1}">
+      <div class="gallery-card-info">${img.name}</div>
+    </div>
+  `).join('');
+}
+
+function removeGallery(index){
+  galleryImages.splice(index,1);
+  renderGallery();
+  if (currentUserEmail) saveUserData(currentUserEmail);
+}
+
+function initScreens() {
+  const loginScreen = document.getElementById('loginScreen');
+  const welcomeScreen = document.getElementById('welcomeScreen');
+  const appScreen = document.getElementById('appScreen');
+  if (loginScreen) loginScreen.style.display = 'flex';
+  if (welcomeScreen) welcomeScreen.style.display = 'none';
+  if (appScreen) appScreen.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initScreens();
+  ['pwInput','emailInput'].forEach(id => {
+    const input = document.getElementById(id);
+    if(input) input.addEventListener('keydown', e => { if(e.key === 'Enter') tryLogin(); });
+  });
+  restoreSession();
+});
+
+// ══════════════════════════════════════════
+//  TABS — Orden de secciones según solicitud
+// ══════════════════════════════════════════
+const ICONS = {
+  kit: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16v14H4z" fill="none"/><path d="M4 7h16v2H4zm0 4h16v2H4zm0 4h10v2H4z" fill="currentColor"/></svg>`,
+  circulo: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>`,
+  temp: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a4 4 0 00-4 4v7.17a4 4 0 104 0V6a4 4 0 00-4-4z" fill="currentColor"/><path d="M12 20a6 6 0 006-6V7a6 6 0 10-12 0v7a6 6 0 006 6z" fill="none" stroke="currentColor" stroke-width="2"/></svg>`,
+  quiz: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a8 8 0 100 16 8 8 0 000-16zm1 12h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 10.9 12 11.5 12 13h-2v-.5c0-1 .45-1.5 1.17-2.22l1.24-1.26c.37-.36.59-.86.59-1.42 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" fill="currentColor"/></svg>`,
+  juego: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.09 6.26L21 9.27l-5 3.73 1.18 6.88L12 17.77 7.82 19.98 9 13 4 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>`,
+  guias_naturales: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 20h12v-2H6v2zM8 4h8v2H8V4zm-2 8h12v2H6v-2zm0-4h12v2H6V8z" fill="currentColor"/></svg>`,
+  presion: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10v2H7V2zm0 18h10v2H7v-2zm2-4h6v2H9v-2z" fill="currentColor"/><path d="M12 6c-3.31 0-6 2.69-6 6 0 2.3 1.29 4.3 3.2 5.35L12 22l2.8-4.65C16.71 16.3 18 14.3 18 12c0-3.31-2.69-6-6-6z" fill="none" stroke="currentColor" stroke-width="2"/></svg>`,
+  capas: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l8 4-8 4-8-4 8-4zm0 8l8 4-8 4-8-4 8-4z" fill="currentColor"/></svg>`,
+  gel: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a6 6 0 00-6 6c0 2.2 1.1 4.15 2.8 5.3L12 22l3.2-8.7A6 6 0 0018 8a6 6 0 00-6-6z" fill="currentColor"/></svg>`,
+  mezclas: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 4h12v2H6V4zm2 4h8v2H8V8zm-2 4h12v2H6v-2zm2 4h8v2H8v-2z" fill="currentColor"/></svg>`,
+  contraste: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 2h20v20H2V2zm10 18V4h8v16h-8zm-8 0V4h8v16H4z" fill="currentColor"/></svg>`,
+  clases: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16v14H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 9h8M8 13h8M8 17h4" stroke="currentColor" stroke-width="2"/></svg>`,
+  luz_sombra: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 4h12v2H6V4zm0 14h12v2H6v-2zm2-7h8v2H8v-2z" fill="currentColor"/><path d="M5 18l14-12" stroke="currentColor" stroke-width="2"/></svg>`,
+  pdfs: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 14h6M9 18h6" fill="none" stroke="currentColor" stroke-width="2"/></svg>`,
+  cierre: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 10V7a6 6 0 1112 0v3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="6" y="10" width="12" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>`,
+  trabajos: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18M8 2v5" fill="none" stroke="currentColor" stroke-width="2"/></svg>`
+};
+const TABS = [
+  {icon:'kit',  label:'Kit del Artista', id:'kit'},
+  {icon:'circulo',  label:'Círculo Cromático',           id:'circulo'},
+  {icon:'presion', label:'Presión del Pincel',          id:'presion'},
+  {icon:'guias_naturales',  label:'Cuadrículas de Dibujo',  id:'guias_naturales'},
+  {icon:'quiz',  label:'Quiz',             id:'quiz'},
+  {icon:'clases',  label:'Módulos y Tips',          id:'clases'},
+  {icon:'trabajos', label:'Mis trabajos', id:'trabajos'},
+  {icon:'pdfs', label:'Mis Archivos', id:'pdfs'},
+  {icon:'cierre',  label:'Final del Curso',           id:'cierre'},
+];
+
+function buildTabs(){
+  const el = document.getElementById('tabs');
+  el.innerHTML = TABS.map(t => {
+    const icon = ICONS[t.icon] || '';
+    return `<button class="tab-btn${t.id===curTab?' active':''}" onclick="switchTab('${t.id}')">${icon}<span>${t.label}</span></button>`;
+  }).join('');
+}
+function switchTab(id){ curTab=id; buildTabs(); renderSection(); document.getElementById('content').scrollTop=0; window.scrollTo(0,0); }
+
+// ══ DATA ══
+const WC=[
+  {hex:"#F5E030",name:"Amarillo",     type:"primario",  cool:false, combos:["#FCB201","#F47502","#D60000"]},
+  {hex:"#FCB201",name:"Amarillo Naranja",   type:"terciario", cool:false, combos:["#F47502","#D60000","#880064"]},
+  {hex:"#F47502",name:"Naranja",      type:"secundario",cool:false, combos:["#D60000","#880064","#F5E030"]},
+  {hex:"#E90101",name:"Rojo Naranja",    type:"terciario", cool:false, combos:["#D60000","#880064","#F5E030"]},
+  {hex:"#D60000",name:"Rojo",         type:"primario",  cool:false, combos:["#880064","#F5E030","#F47502"]},
+  {hex:"#880064",name:"Rojo Violeta",    type:"terciario", cool:false, combos:["#F5E030","#FCB201","#3401A0"]},
+  {hex:"#3401A0",name:"Violeta",      type:"secundario",cool:true,  combos:["#F5E030","#A6C401","#F47502"]},
+  {hex:"#0212B3",name:"Azul Violeta",   type:"terciario", cool:true,  combos:["#F5E030","#A6C401","#F47502"]},
+  {hex:"#024DC5",name:"Azul",         type:"primario",  cool:true,  combos:["#F5E030","#A6C401","#3401A0"]},
+  {hex:"#028DBB",name:"Verde Azul",   type:"terciario", cool:true,  combos:["#F5E030","#A6C401","#024DC5"]},
+  {hex:"#4FA802",name:"Verde",        type:"secundario",cool:true,  combos:["#D60000","#F5E030","#3401A0"]},
+  {hex:"#A6C401",name:"Amarillo Verde",     type:"terciario", cool:true,  combos:["#3401A0","#D60000","#024DC5"]}, 
+];
+
+const MC=[
+  {hex:"#FFFACC",name:"Amarillo pastel",  contrast:"alto"},
+  {hex:"#FFD6DC",name:"Rosa claro",       contrast:"alto"},
+  {hex:"#C8F0D8",name:"Verde menta",      contrast:"alto"},
+  {hex:"#D4E8F8",name:"Celeste",          contrast:"alto"},
+  {hex:"#FFD8B4",name:"Melocotón",        contrast:"alto"},
+  {hex:"#FF6B8A",name:"Fucsia",           contrast:"medio"},
+  {hex:"#4CAF80",name:"Verde esmeralda",  contrast:"medio"},
+  {hex:"#2E5F8A",name:"Azul marino",      contrast:"bajo"},
+  {hex:"#1A1612",name:"Negro",            contrast:"nulo"},
+  {hex:"#FFFFFF",name:"Blanco",           contrast:"máximo"},
+];
+
+const MZ=[
+  {c1:"#FFFACC",c2:"#FFFFFF",r:"#FFFFF0",lbl:"Color + Blanco 30%",      detail:"Agrega aprox. 30% de gel blanco. Resultado: pastel perfecto para fondos.", uso:"Todos los personajes"},
+  {c1:"#F5E030",c2:"#E84040",r:"#F5953A",lbl:"Amarillo 70% + Rojo 30%", detail:"Naranja cartoon vibrante para Mario Bros, flores y atardeceres.",           uso:"Mario · Flores · Atardeceres"},
+  {c1:"#3A5FC8",c2:"#FFFFFF",r:"#A8C4E8",lbl:"Azul + Blanco 50%",       detail:"Celeste suave ideal para cielos, Stitch y fondos de cartoon.",               uso:"Stitch · Cielos · Agua"},
+  {c1:"#E84040",c2:"#FFFFFF",r:"#F5A8B0",lbl:"Rojo + Blanco 40%",       detail:"Rosa coral brillante para personajes femeninos y flores.",                    uso:"Personajes femeninos"},
+  {c1:"#F5E030",c2:"#3A5FC8",r:"#50C030",lbl:"Amarillo + Azul = Verde",  detail:"Verde básico. Usa 60% amarillo y 40% azul para verde cartoon limpio.",       uso:"Hojas · Dinosaurios · Shrek"},
+  {c1:"#1A1612",c2:"#FFFFFF",r:"#888888",lbl:"Negro + Blanco = Gris",    detail:"Gris neutro para sombras y degradados. Empieza con 80% blanco.",             uso:"Sombras · Líneas suaves"},
+  {c1:"#F5953A",c2:"#6040C0",r:"#B07BBC",lbl:"Naranja + Violeta = Malva", detail:"Malva suave, ideal para flores y detalles femeninos.",                    uso:"Flores · Encaje · Personajes dulces"},
+  {c1:"#3A5FC8",c2:"#C8D820",r:"#8AB04F",lbl:"Azul + Amarillo = Verde", detail:"Verde intenso para hojas y criaturas, con mucha frescura.",                    uso:"Plantas · Criaturas · Fondos naturales"},
+  {c1:"#E84040",c2:"#F0C820",r:"#D46620",lbl:"Rojo + Amarillo = Naranja", detail:"Naranja cálido para fuego, tonos sunset y personajes muy energéticos.",       uso:"Fuego · Atardeceres · Personajes fuertes"},
+];
+
+const KIT_DATA = [
+  {cat:"instrumentos",emoji:"imagenes/liner.png",name:"Pinceles Liner",desc:"10mm, 15mm y 20mm para trazos finos y detalle de personajes.",tip:"Humedécelo antes de cargar gel para mayor fluidez.",nivel:"esencial"},
+  {cat:"equipos",emoji:"imagenes/uvmano.png",name:"Lámpara UV Normal",desc:"Mínimo 48W. Cura geles de color y construcción en 60-120 seg.",tip:"60 seg por capa de color, 120 seg para construcción.",nivel:"esencial"},
+  {cat:"equipos",emoji:"imagenes/uvindividual.png",name:"Lámpara UV Individual",desc:"Más potente que la estándar. Requiere tiempos de secado más rápidos, incluso de solo 10 a 20 seg.",tip:"Reduce el tiempo de curado a la mitad. Prueba primero en una uña de práctica.",nivel:"recomendado"},
+  {cat:"equipos",emoji:"imagenes/lampara.png",name:"Lámpara de iluminación",desc:"Visibilidad general del área de trabajo.",tip:"Mantén la lámpara a 30cm de distancia para evitar sombras, si es necesario adquiere dos para una mejor iluminación.",nivel:"recomendado"},
+  {cat:"equipos",emoji:"imagenes/lentemacro.png",name:"Lente Macro para Celular",desc:"Lente clip que se adapta a tu teléfono para fotos en primer plano de alta calidad.",tip:"Úsalo con buena iluminación natural. Cambia tu foto de resultados completamente.",nivel:"recomendado"},
+  {cat:"herramientas",emoji:"imagenes/cel.png",name:"Soporte para Celular",desc:"Estabilizador para capturar fotos y videos del proceso, garantizando tomas estables sin movimiento.",tip:"Asegúrate de que el brazo esté bien ajustado sobre el área de trabajo y limpia el lente del celular antes de cada toma para evitar imágenes borrosas.",nivel:"recomendado"},
+  {cat:"herramientas",emoji:"imagenes/lapizp.png",name:"Lápiz / Portaminas / Borra pequeña",desc:"Para bocetar el diseño antes de pasar al gel.",tip:"Usa trazo muy suave, 0.5mm idealmente. Utiliza el lápiz o el portaminas de acuerdo a tu comodidad y la borra para corregir cualquier error gráfico.",nivel:"esencial"},
+  {cat:"herramientas",emoji:"imagenes/punteros.png",name:"Dotting Tools / Punteros",desc:"Para puntos perfectos y ojos de cartoon.",tip:"Limpia entre colores con alcohol o acetona.",nivel:"esencial"},
+  {cat:"herramientas",emoji:"imagenes/cinta.png",name:"Cinta métrica o regla",desc:"Para medir proporciones y establecer cuadrículas precisas en el diseño con ayuda del lapiz.",tip:"Prioriza siempre la cinta métrica flexible; su capacidad para contornear la superficie de la uña elimina el margen de error que presentan las reglas rígidas. Con 15 cm de largo es suficiente para cubrir todo el set.",nivel:"recomendado"},
+  {cat:"herramientas",emoji:"imagenes/tips.png",name:"Tips de práctica",desc:"Tips transparentes para practicar diseños, los tamaños varian de acuerdo al diseño a realizar.",tip:"Etiquétalos por nivel de dificultad y utiliza para diseños mas grandes los numeros 0-1-2.",nivel:"esencial"},
+  {cat:"herramientas",emoji:"imagenes/soporte.png",name:"Soporte para uña",desc:"Magnético para trabajar cómodamente.",tip:"Pega el tip al soporte antes de empezar. Tambien se puede utilizar la punta del mango de un pincel o la punta de un lapiz.",nivel:"recomendado"},
+  {cat:"herramientas",emoji:"imagenes/godete.png",name:"Godete para mezclar colores",desc:"Pequeño recipiente para mezclar geles y colores.",tip:"Limpia el godete con alcohol entre mezclas para evitar contaminación de colores.",nivel:"esencial"},
+  {cat:"pinturas",emoji:"imagenes/painting.png",name:"Painting Gel Alta Densidad",desc:"Gel de alta densidad para detalles y líneas de cartoon. Marca sugerida: Tiffany.",tip:"No se corre. Ideal para ojos, contornos y lettering.",nivel:"esencial"},
+  {cat:"pinturas",emoji:"imagenes/semi.png",name:"Esmalte Semipermanente",desc:"Para fondos y colores base. Marca sugerida: Max Glow.",tip:"Aplica en capas delgadas para evitar burbujas.",nivel:"esencial"},
+  {cat:"pinturas",emoji:"imagenes/oleo.png",name:"Óleo",desc:"Para gradientes y efectos suaves. Seca lento, ideal para difuminar.",tip:"Una gota es suficiente. Mezcla sobre godete.",nivel:"avanzado"},
+  {cat:"pinturas",emoji:"imagenes/acuarela.png",name:"Acuarela y Acrílica",desc:"Para casos especiales y efectos acuosos.",tip:"Solo sobre gel curado y sellado. Aplica top coat al final.",nivel:"avanzado"},
+  {cat:"limpieza",emoji:"imagenes/alcohol.png",name:"Alcohol",desc:"Indispensable para limpieza de pinceles entre colores y remoción de capa de inhibición.",tip:"Limpia tu pincel suavemente al cambiar de color para mantener la integridad de las cerdas.",nivel:"esencial"},
+  {cat:"limpieza",emoji:"imagenes/acetona.png",name:"Acetona",desc:"Solvente potente para retirar residuos sellados en la cerda y matificar superficies para efectos espejo.",tip:"Úsala para recuperar pinceles con restos de pintura endurecida o para quitar el brillo antes del efecto. ¡Importante! No dejes el pincel sumergido mucho tiempo para evitar dañar las cerdas.",nivel:"esencial"},
+  {cat:"limpieza",emoji:"imagenes/wipes.png",name:"Nail Wipes",desc:"Para limpiar capas pegajosas y capa inhibidora.",tip:"Siempre con alcohol 90%+, nunca en seco. Si es con acetona en cantidades moderadas.",nivel:"esencial"},
+
+];
+const DRIVE_LINK_PARAMETRIZACION = "https://drive.google.com/file/d/1d1rsTlqYc0OZneVVylmbkfce-GOk8WSE/view?usp=drive_link";
+const DRIVE_LINK_TRAZOS = "https://drive.google.com/file/d/1n9FZ3B1epS8_Vr_gQExDVyhiJbv-iCPr/view?usp=drive_link";
+const MODULOS=[
+  {num:"1",color:"#C8546A",bg:"#FAEEF1",
+   titulo:"Dominar el Pulso",
+   desc:"La diferencia entre un trazo de principiante a uno profesional no está en el talento — está en la técnica.",
+   status:"disponible",
+   lecciones:[
+     {n:1,titulo:"Presentación del curso y Rubimar", sub:"Video intro"},
+     {n:2, titulo:"Postura correcta y agarre del pincel", sub:"Fundamento"},
+     {n:3,titulo:"Líneas rectas y curvas — calentamiento",sub:"Ejercicio práctico"},
+     {n:4,titulo:"Trazos finos: la técnica de presión gradual",sub:"Técnica clave"},
+     {n:5,titulo:"Tu primera línea perfecta (práctica guiada)",sub:"Proyecto"},
+   ]},
+  {num:"2",color:"#B8832A",bg:"#FBF4E3",
+   titulo:"Darle Vida al Arte",
+   desc:"El color tiene reglas. Cuando las conoces, todo cambia. Mezclas, temperaturas y gradientes.",
+   status:"disponible",
+   lecciones:[
+     {n:1,titulo:"El círculo cromático para nail art",sub:"Teoría visual"},
+     {n:2,titulo:"Colores cálidos vs fríos en personajes",sub:"Aplicación práctica"},
+     {n:3,titulo:"Mezclas de gel: proporciones exactas",sub:"Fórmulas"},
+     {n:4,titulo:"Luces, sombras y gradientes",sub:"Técnica avanzada"},
+     {n:5,titulo:"Temperatura del color en cartoons",sub:"Proyecto"},
+   ]},
+  {num:"3",color:"#7A72B0",bg:"#EDEBF7",
+   titulo:"Crear Sin Límites",
+   desc:"Cualquier personaje, cualquier idea. Mi método para simplificar lo complejo y dibujarlo en 1cm.",
+   status:"disponible",
+   lecciones:[
+     {n:1,titulo:"Simplificar un personaje en 3 formas",sub:"Método Rubimar"},
+     {n:2,titulo:"Proporciones cartoon vs realismo",sub:"Estructura"},
+     {n:3,titulo:"Ojos expresivos: el secreto de los cartoons",sub:"Detalle clave"},
+     {n:4,titulo:"Del boceto a la uña: transferencia",sub:"Técnica"},
+     {n:5,titulo:"Personaje completo paso a paso",sub:"Clase magistral"},
+   ]},
+  {num:"4",color:"#3A8A8A",bg:"#E3F2F2",
+   titulo:"Proyectos Finales",
+   desc:"Diseños completos, colecciones de 5 uñas y cómo fotografiar tu trabajo para redes.",
+   status:"disponible",
+   lecciones:[
+     {n:1,titulo:"Diseño libre con guías de plantilla",sub:"Proyecto libre"},
+     {n:2,titulo:"Colección de 5 uñas temáticas",sub:"Proyecto colección"},
+     {n:3,titulo:"Fotografía y presentación para Instagram",sub:"Marketing personal"},
+   ]},
+  {num: "5",
+        color: "#D8BFD8",
+        bg: "#FDF5E6",
+        titulo: "Realismo",
+        mensajePersonalizado: "Este curso aún no está disponible",
+        desc: "Dominio de texturas y sombras avanzadas.",
+        status: "próximamente",
+        lecciones: [
+            {n: 1, titulo: "Introducción al realismo", sub: "Conceptos"},
+            {n: 2, titulo: "Sombras y luces", sub: "Técnica"},
+    ]},
+];
+
+const QUIZ_DATA=[
+  {q:"¿Cuál de estos colores es CÁLIDO?",                              opts:["Azul marino","Verde agua","Naranja vibrante","Violeta"],       correct:2, exp:"El naranja es cálido porque tiene rojo y amarillo — los colores del fuego y el sol."},
+  {q:"¿Qué colores son los primarios en pintura?",                     opts:["Rojo, Azul y Verde","Rojo, Amarillo y Azul","Naranja, Verde y Violeta","Blanco, Negro y Gris"],correct:1,exp:"Los primarios son Rojo, Amarillo y Azul. No se pueden crear mezclando otros colores."},
+  {q:"Si mezclas Azul + Amarillo, ¿qué obtienes?",                    opts:["Naranja","Violeta","Verde","Gris"],                            correct:2, exp:"Azul + Amarillo = Verde. Es uno de los colores secundarios básicos."},
+  {q:"¿Cuál es la combinación COMPLEMENTARIA del Rojo?",               opts:["Naranja","Violeta","Verde","Azul"],                            correct:2, exp:"El complementario del Rojo es el Verde — están opuestos en el círculo cromático."},
+  {q:"¿Qué pasa cuando agregas mucho BLANCO a un color de gel?",      opts:["Se vuelve más oscuro","Se vuelve pastel","Se vuelve brillante","No cambia"],correct:1,exp:"Agregar blanco aclara el color y lo convierte en un tono pastel."},
+  {q:"¿Cuál es la mejor base para dibujar un personaje de cartoon?",  opts:["Negro puro","Fondo nude o blanco","Fondo naranja","Sin fondo"], correct:1, exp:"El fondo nude o blanco da el mayor contraste y permite ver los detalles nítidos."},
+  {q:"¿Qué herramienta usas para hacer puntos perfectos en ojos?",    opts:["Pincel liner","Dotting tool / puntero","Lima","Cinta métrica"], correct:1, exp:"El dotting tool es ideal para puntos perfectos y ojos redondos en cartoons."},
+  {q:"¿Cuándo debes curar el gel entre capas?",                        opts:["Solo al final","Nunca","Después de cada capa","Solo la primera vez"],correct:2,exp:"Debes curar el gel después de CADA capa para garantizar adhesión y durabilidad."},
+];
+
+// ══ RENDER PRINCIPAL ══
+function renderSection(){
+  const c = document.getElementById('content');
+  switch(curTab){
+    case 'kit':            c.innerHTML = renderKit();          break;
+    case 'circulo':        c.innerHTML = renderCirculo();      break;
+    case 'temp':           c.innerHTML = renderTemp();         break;
+    case 'juego':           c.innerHTML = renderJuego(); initGame(); break;
+    case 'quiz':           c.innerHTML = renderQuiz(); initQuiz(); break;
+    case 'guias_naturales':c.innerHTML = renderGuiasNaturales(); break;
+    case 'presion':        c.innerHTML = renderPresion();      break;
+    case 'gel':            c.innerHTML = renderGel();          break;
+    case 'mezclas':        c.innerHTML = renderMezclas();      break;
+    case 'contraste':      c.innerHTML = renderContraste();    break;
+    case 'clases':         c.innerHTML = renderClases();       break;
+    case 'pdfs':           c.innerHTML = renderPDFs(); renderPDFList(); break;
+    case 'trabajos':       c.innerHTML = renderTrabajos(); renderGallery(); break;
+    case 'cierre':         c.innerHTML = renderCierre();       break;
+  }
+}
+
+// ══════════════════════════════════
+//  1. KIT DEL ARTISTA
+// ══════════════════════════════════
+function renderKit(){
+  return `<h2 class="section-title">Kit del Artista</h2> 
+  <p class="section-sub">Todo lo que necesitas — de mi propia experiencia</p>
+
+  <div class="kit-filter">
+    <button class="kf-btn on" onclick="filterKit('todos',this)">Todo</button>
+    <button class="kf-btn" onclick="filterKit('herramientas',this)">Herramientas</button>
+    <button class="kf-btn" onclick="filterKit('equipos',this)">Equipos</button>
+    <button class="kf-btn" onclick="filterKit('pinturas',this)">Pinturas</button>
+    <button class="kf-btn" onclick="filterKit('limpieza',this)">Limpieza</button>
+    <button class="kf-btn" onclick="filterKit('guias',this)">Guías de práctica</button>
+  </div>
+  <div class="kit-grid" id="kitGrid">${kitCards('todos')}</div>
+
+<div id="recursos-practica" style="text-align: center; margin-bottom: 20px; padding: 20px; background: #fffafb; border-radius: 15px; border: 1px solid #f0f0f0;">
+    <h3 style="margin-top:0; color: #333;">Recursos de Práctica</h3>
+    <p style="color: #666; margin-bottom: 20px;">Haz clic en la guía que necesitas solicitar:</p>
+    
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        
+        <div style="width: 120px;">
+            <img src="imagenes/guia.jpg" style="width: 100%; border-radius: 20px; border: 1px solid #ddd;">
+            <a href="${DRIVE_LINK_PARAMETRIZACION}" 
+               target="_blank" style="display:block; margin-top:10px; background:#d15a6b; color:white; padding:5px; border-radius:10px; text-decoration:none; font-size:12px; font-weight:bold;">
+               Solicitar <br> Guía de Parametrización
+            </a>
+        </div>
+
+        <div style="width: 120px;">
+            <img src="imagenes/plantillas.jpg" style="width: 100%; border-radius: 20px; border: 1px solid #ddd;">
+            <a href="${DRIVE_LINK_TRAZOS}" 
+               target="_blank" style="display:block; margin-top:10px; background:#d15a6b; color:white; padding:5px; border-radius:10px; text-decoration:none; font-size:12px; font-weight:bold;">
+               Solicitar <br> Plantilla de Trazos
+            </a>
+        </div>
+
+  <div class="wa-cta" style="margin-top:16px">
+    <p class="eyebrow">¿No sabes dónde comprar?</p>
+<h3>¡No te preocupes!</h3>
+<p class="desc">🇻🇪 <strong>En Venezuela:</strong> Escríbeme y te recomiendo tiendas para comprar tus materiales.</p>
+<p class="desc">🌎 <strong>En el Exterior:</strong> Te recomiendo páginas como Amazon, Shein, AliExpress o eBay. CONSULTA EN LA WEB</p>
+    <a href="https://wa.me/584122407829?text=Hola Rubimar, quiero saber dónde comprar el kit en Venezuela" target="_blank" class="wa-big-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.571l5.887-1.543A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.031-1.386l-.361-.214-3.733.979.998-3.648-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+      <span>¿Dónde comprar en Venezuela? →</span>
+    </a>
+  </div>`;
+}
+
+function kitCards(cat){
+  return KIT_DATA.filter(k => cat==='todos' || k.cat===cat).map(k=>`
+    <div class="kit-card">
+      <div class="kit-img"><img src="${k.emoji}" alt="${k.name}" class="foto-producto"></div>
+      <div class="kit-body">
+        <span class="kit-badge ${k.nivel}">${k.nivel==='esencial'?'⭐ Esencial':k.nivel==='recomendado'?'✓ Recomendado':'+ Avanzado'}</span>
+        <div class="kit-name">${k.name}</div>
+        <div class="kit-desc">${k.desc}</div>
+        <div class="kit-tip">Nota: ${k.tip}</div>
+        </a>
+      </div>
+    </div>`).join('');
+}
+
+function filterKit(cat, btn) {
+    // 1. Manejo de botones activos
+    document.querySelectorAll('.kf-btn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    
+    // 2. Filtrado de tarjetas
+    document.getElementById('kitGrid').innerHTML = kitCards(cat);
+    
+    // 3. Lógica para mostrar/ocultar los recursos
+    const recursos = document.getElementById('recursos-practica');
+    if (recursos) {
+        if (cat === 'todos' || cat === 'guias') {
+            recursos.style.display = 'block'; 
+        } else {
+            recursos.style.display = 'none'; 
+        }
+    }
+}
+
+// ══════════════════════════════════
+//  2. CUADRÍCULAS DE DIBUJO
+// ══════════════════════════════════
+const GRID_SIZES = [
+  {label:"4 × 4",  cols:4,  rows:4,  size:40, desc:"Ideal para formas básicas y bocetos grandes."},
+  {label:"5 × 12", cols:5,  rows:12, size:32, desc:"Perfecta para figuras verticales y personajes de pie."},
+  {label:"12 × 5", cols:12, rows:5,  size:32, desc:"Para composiciones horizontales y fondos."},
+  {label:"6 × 8",  cols:6,  rows:8,  size:32, desc:"Proporciones equilibradas. La más usada en el método."},
+  {label:"8 × 5",  cols:8,  rows:5,  size:32, desc:"Formato apaisado para diseños de colección."},
+];
+let curGridIdx = 3;
+
+function renderCuadriculas(){
+  return `<h2 class="section-title">Cuadrículas de Dibujo</h2>
+  <p class="section-sub">Practica el método de cuadriculado antes de pasar a la uña real</p>
+  <div class="widget">
+    <div class="wtag">Formato de cuadrícula</div>
+    <div class="grid-size-btns">${GRID_SIZES.map((g,i)=>`<button class="gsz-btn${i===curGridIdx?' on':''}" onclick="selGrid(${i})">${g.label}</button>`).join('')}</div>
+    <div class="grid-canvas" id="gridCanvas">${buildGrid(curGridIdx)}</div>
+    <p style="font-size:12px;color:var(--ink3);font-style:italic;margin-bottom:12px" id="gridDesc">${GRID_SIZES[curGridIdx].desc}</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="tip-pill" style="cursor:pointer" onclick="alert('Para guardar la cuadrícula: haz una captura de pantalla y guárdala en tu galería.')">📥 Cómo guardar</button>
+      <a href="https://wa.me/584122407829?text=Hola Rubimar, quiero las cuadrículas en PDF para imprimir" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--rose);color:#fff;border-radius:18px;padding:6px 16px;text-decoration:none;font-size:11.5px;font-family:var(--font-body)">📋 Pedir PDF imprimible</a>
+    </div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Cómo usar el método de cuadriculado</div>
+    ${[
+      {n:"1",t:"Elige tu personaje",d:"Consigue una imagen de referencia del personaje que quieres dibujar."},
+      {n:"2",t:"Divide la referencia",d:"Traza una cuadrícula sobre tu referencia (en papel o digitalmente) del mismo tamaño."},
+      {n:"3",t:"Copia celda por celda",d:"No copies todo el personaje a la vez. Copia una celda a la vez. Así tu mente no se abruma."},
+      {n:"4",t:"Transfiere a la uña",d:"Una vez dominado en papel, aplica el mismo proceso en el tip de práctica con tu pincel liner."},
+    ].map(s=>`<div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--cream3)">
+      <div style="width:22px;height:22px;border-radius:50%;background:var(--roselt);color:var(--rose);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0">${s.n}</div>
+      <div><strong style="font-size:12.5px;color:var(--ink)">${s.t}</strong><br><span style="font-size:11.5px;color:var(--ink3)">${s.d}</span></div>
+    </div>`).join('')}
+  </div>`;
+}
+
+function buildGrid(idx){
+  const g = GRID_SIZES[idx];
+  const W = g.cols * g.size, H = g.rows * g.size;
+  let svg = `<svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">`;
+  svg += `<rect width="${W}" height="${H}" fill="white"/>`;
+  for(let i=0;i<=g.cols;i++) svg+=`<line x1="${i*g.size}" y1="0" x2="${i*g.size}" y2="${H}" stroke="#E0D8D0" stroke-width="${i===0||i===g.cols?2:1}"/>`;
+  for(let j=0;j<=g.rows;j++) svg+=`<line x1="0" y1="${j*g.size}" x2="${W}" y2="${j*g.size}" stroke="#E0D8D0" stroke-width="${j===0||j===g.rows?2:1}"/>`;
+  svg += `</svg>`;
+  return svg;
+}
+
+function selGrid(idx){
+  curGridIdx = idx;
+  document.querySelectorAll('.gsz-btn').forEach((b,i)=>b.classList.toggle('on',i===idx));
+  document.getElementById('gridCanvas').innerHTML = buildGrid(idx);
+  document.getElementById('gridDesc').textContent = GRID_SIZES[idx].desc;
+}
+
+// ══════════════════════════════════
+//  3. CÍRCULO CROMÁTICO
+// ══════════════════════════════════
+function renderCirculo(){
+  const svgSize=240,cx=120,cy=120,r=92,r2=62;
+  let wedges='';
+  WC.forEach((c,i)=>{
+    const a0=(i/12)*360-90, a1=((i+1)/12)*360-90;
+    const x1=cx+r*Math.cos(a0*Math.PI/180),  y1=cy+r*Math.sin(a0*Math.PI/180);
+    const x2=cx+r*Math.cos(a1*Math.PI/180),  y2=cy+r*Math.sin(a1*Math.PI/180);
+    const x3=cx+r2*Math.cos(a1*Math.PI/180), y3=cy+r2*Math.sin(a1*Math.PI/180);
+    const x4=cx+r2*Math.cos(a0*Math.PI/180), y4=cy+r2*Math.sin(a0*Math.PI/180);
+    wedges+=`<path d="M${x1},${y1} A${r},${r},0,0,1,${x2},${y2} L${x3},${y3} A${r2},${r2},0,0,0,${x4},${y4} Z" fill="${c.hex}" stroke="white" stroke-width="1.5" style="cursor:pointer;transition:transform .2s" onclick="selColor(${i})" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'"/>`;
+  });
+  return `<h2 class="section-title">Círculo Cromático</h2>
+  <p class="section-sub">Interactúa con el color para ver sus mejores combinaciones y temperatura.</p>
+  <div class="widget">
+    <div class="circle-block">
+      <div class="circle-wrap">
+        <svg width="${svgSize}" height="${svgSize}" viewBox="0 0 ${svgSize} ${svgSize}">
+          <defs><filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#000" flood-opacity="0.12"/></filter></defs>
+          ${wedges}
+          <circle cx="${cx}" cy="${cy}" r="48" fill="#fff" stroke="#EFE9DF" stroke-width="2" filter="url(#glow)"/>
+          <text x="${cx}" y="${cy+6}" text-anchor="middle" font-size="18" font-family="var(--font-body)" fill="#1A1612">Círculo</text>
+        </svg>
+      </div>
+      <div class="circle-summary">
+        <div class="sel-color-info" id="colorInfo">
+          <div class="sel-sw" id="colorSw" style="background:#F5E030"></div>
+          <div class="sel-info"><h4 id="colorName">Amarillo</h4><p id="colorDesc">Primario · Cálido · Base de mezclas</p></div>
+        </div>
+        <div class="combo-panel">
+          <p class="combo-title">Combina bien con:</p>
+          <div class="combo-row" id="combos">
+            ${WC[0].combos.map(h=>`<div class="combo-chip"><div class="combo-dot" style="background:${h}"></div><span class="combo-lbl">${WC.find(w=>w.hex===h)?.name||h}</span></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Colores cálidos y fríos</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;">
+      <div style="flex:1;min-width:240px;">
+        <div style="text-align:center;margin-bottom:16px"><img src="https://www.javierdlt.com/wp-content/uploads/2020/05/psicologia_de_los_colores.png" alt="Colores y emociones" style="max-width:100%;border-radius:16px;border:1px solid var(--cream3);" /></div>
+      </div>
+      <div style="flex:1;min-width:240px;">
+        <div class="wtag">Colores Cálidos</div>
+        <div class="temp-grid">${WARM_COLORS.map(c=>`<div class="temp-card"><div class="t-circle" style="background:${c.hex}"></div><div class="t-name" style="color:var(--ink2)">${c.name}</div></div>`).join('')}</div>
+        <div class="temp-rule" style="background:#FFF0E0;color:#B04020">🔥 Los cálidos transmiten energía, alegría y movimiento. Perfectos para personajes activos y escenas de acción.</div>
+        <div class="wtag" style="margin-top:18px;">Colores Fríos</div>
+        <div class="temp-grid">${COOL_COLORS.map(c=>`<div class="temp-card"><div class="t-circle" style="background:${c.hex}"></div><div class="t-name" style="color:var(--ink2)">${c.name}</div></div>`).join('')}</div>
+        <div class="temp-rule" style="background:#E8F0FF;color:#204880">❄️ Los fríos transmiten calma, misterio y profundidad. Ideales para Stitch, cielos, agua y personajes tranquilos.</div>
+      </div>
+    </div>
+  </div>
+  <div class="widget">
+    <h3 class="section-sub" style="margin-bottom:12px;">Mezclas de Gel</h3>
+    <div class="wtag">Fórmulas de mezcla</div>
+    <div class="mezcla-grid">${MZ.map((m,i)=>`
+      <div class="mezcla-card" onclick="selMezcla(${i})" id="mc-${i}">
+        <div class="m-preview">
+          <div class="m-dot" style="background:${m.c1}"></div>
+          <span class="m-eq">+</span>
+          <div class="m-dot" style="background:${m.c2}"></div>
+          <span class="m-eq">=</span>
+          <div class="m-res" style="background:${m.r}"></div>
+        </div>
+        <div class="m-txt"><strong>${m.lbl}</strong></div>
+      </div>`).join('')}
+    </div>
+    <div class="mezcla-detail" id="mezclaDetail">
+      <h4 id="mzTitle"></h4>
+      <p id="mzDesc"></p>
+      <p style="font-size:11px;color:var(--ink3);margin-top:6px;font-style:italic" id="mzUso"></p>
+    </div>
+  </div>
+  <div class="tip-pill">💡 Siempre mezcla sobre godete o papel aluminio — nunca en el frasco</div>
+  <div class="widget">
+    <h3 class="section-sub" style="margin-bottom:12px;">Contraste de Colores</h3>
+    <div class="wtag">Simulador de Contraste</div>
+    <div class="contrast-layout">
+      <div class="nail-demo" id="contrastNail" style="background:#FFFACC">
+        <div class="cartoon-f"><div class="c-eyes"><div class="c-eye"></div><div class="c-eye"></div></div><div class="c-mouth"></div></div>
+      </div>
+      <div class="contrast-info">
+        <h4 id="contrastName">Amarillo pastel</h4>
+        <p id="contrastDesc">Fondo suave que permite ver todos los detalles del diseño.</p>
+        <span class="c-badge" id="contrastBadge" style="background:var(--sagelt);color:var(--sage)">Contraste alto ✓</span>
+      </div>
+    </div>
+    <div class="color-pal">${MC.map((c,i)=>`<button class="cp-btn${i===0?' sel':''}" style="background:${c.hex}" onclick="selContrast(${i})" title="${c.name}"></button>`).join('')}</div>
+  </div>`;
+}
+
+function selColor(i){
+  const c=WC[i];
+  document.getElementById('colorSw').style.background=c.hex;
+  document.getElementById('colorName').textContent=c.name;
+  document.getElementById('colorDesc').textContent=`${c.type.charAt(0).toUpperCase()+c.type.slice(1)} · ${c.cool?'Frío':'Cálido'}`;
+  document.getElementById('combos').innerHTML=c.combos.map(h=>`<div class="combo-chip"><div class="combo-dot" style="background:${h}"></div><span class="combo-lbl">${WC.find(w=>w.hex===h)?.name||h}</span></div>`).join('');
+}
+
+// ══════════════════════════════════
+//  4. TEMPERATURA
+// ══════════════════════════════════
+const WARM_COLORS = [{hex:"#F5E030",name:"Amarillo"},{hex:"#F0C820",name:"Am-Naranja"},{hex:"#F5953A",name:"Naranja"},{hex:"#F06020",name:"R-Naranja"},{hex:"#E84040",name:"Rojo"},{hex:"#C030A0",name:"R-Violeta"}];
+const COOL_COLORS = [{hex:"#8840B8",name:"Violeta"},{hex:"#6040C0",name:"Az-Violeta"},{hex:"#3A5FC8",name:"Azul"},{hex:"#20B890",name:"V-Azul"},{hex:"#50C030",name:"Verde"},{hex:"#C8D820",name:"Am-Verde"}];
+
+function renderTemp(){
+  return `<h2 class="section-title">Temperatura del Color</h2>
+  <p class="section-sub">Cómo el color crea ambiente en tus diseños</p>
+  <div class="widget" style="padding-bottom:12px;">
+    <div class="wtag">Psicología del color</div>
+    <div style="text-align:center;margin-bottom:16px"><img src="https://www.javierdlt.com/wp-content/uploads/2020/05/psicologia_de_los_colores.png" alt="psicologia de los colores" style="max-width:70%;border-radius:16px;border:1px solid var(--cream3);" /></div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Colores Cálidos</div>
+    <div class="temp-grid">${WARM_COLORS.map(c=>`<div class="temp-card"><div class="t-circle" style="background:${c.hex}"></div><div class="t-name" style="color:var(--ink2)">${c.name}</div></div>`).join('')}</div>
+    <div class="temp-rule" style="background:#FFF0E0;color:#B04020">🔥 Los cálidos transmiten energía, alegría y movimiento. Perfectos para personajes activos y escenas de acción.</div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Colores Fríos</div>
+    <div class="temp-grid">${COOL_COLORS.map(c=>`<div class="temp-card"><div class="t-circle" style="background:${c.hex}"></div><div class="t-name" style="color:var(--ink2)">${c.name}</div></div>`).join('')}</div>
+    <div class="temp-rule" style="background:#E8F0FF;color:#204880">❄️ Los fríos transmiten calma, misterio y profundidad. Ideales para Stitch, cielos, agua y personajes tranquilos.</div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Regla de Temperatura en Cartoon</div>
+    ${[
+      {r:"Mezcla cálidos con cálidos para armonía vibrante",eg:"Mario, Powerpuff Girls, Simpsons"},
+      {r:"Mezcla fríos con fríos para armonía serena",     eg:"Stitch, Garfield (fondo), paisajes nocturnos"},
+      {r:"Cálido + Frío = Contraste máximo",               eg:"Personaje cálido sobre fondo frío"},
+      {r:"Añade blanco para pasteles sin perder temperatura",eg:"Rosa (rojo+blanco) sigue siendo cálido"},
+    ].map(r=>`<div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid var(--cream3)">
+      <span style="color:var(--rose);flex-shrink:0">→</span>
+      <div><div style="font-size:12.5px;color:var(--ink)">${r.r}</div><div style="font-size:11px;color:var(--ink3);font-style:italic">Ej: ${r.eg}</div></div>
+    </div>`).join('')}
+  </div>`;
+}
+
+// ══════════════════════════════════
+//  5. QUIZ
+// ══════════════════════════════════
+let qIdx=0, qScore=0, qAnswered=false;
+function renderQuiz(){
+  return `<h2 class="section-title">Quiz Interactivo</h2>
+  <p class="section-sub">Pon a prueba lo que aprendiste</p>
+  <div id="quizArea"></div>`;
+}
+function initQuiz(){ qIdx=0; qScore=0; renderQ(); }
+function renderQ(){
+  const area=document.getElementById('quizArea');
+  if(!area) return;
+  if(qIdx>=QUIZ_DATA.length){
+    const pct=Math.round(qScore/QUIZ_DATA.length*100);
+    const stars=pct>=80?'⭐⭐⭐':pct>=50?'⭐⭐':'⭐';
+    area.innerHTML=`<div class="quiz-result-panel show">
+      <div class="quiz-stars">${stars}</div>
+      <h3>${qScore}/${QUIZ_DATA.length} correctas</h3>
+      <p>${pct>=80?'¡Excelente! Dominas la teoría del color 🎉':pct>=50?'Buen trabajo. Repasa los módulos de color 📚':'Sigue practicando — el color se aprende con repetición 💪'}</p>
+      <button class="enter-btn" onclick="initQuiz()">Intentar de nuevo →</button>
+    </div>`;
+    return;
+  }
+  qAnswered=false;
+  const q=QUIZ_DATA[qIdx];
+  area.innerHTML=`<div class="quiz-card">
+    <div class="quiz-prog">Pregunta ${qIdx+1} de ${QUIZ_DATA.length} · ${qScore} correctas</div>
+    <div class="quiz-q" style="margin-top:10px">${q.q}</div>
+    <div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQ(${i})" id="qo-${i}">${o}</button>`).join('')}</div>
+    <div class="quiz-feedback" id="qfb"></div>
+    <div class="quiz-nav"><span></span><button class="q-next-btn" id="qnext" onclick="nextQ()">Siguiente →</button></div>
+  </div>`;
+}
+function answerQ(i){
+  if(qAnswered) return;
+  qAnswered=true;
+  const q=QUIZ_DATA[qIdx];
+  document.querySelectorAll('.quiz-opt').forEach(b=>b.disabled=true);
+  const fb=document.getElementById('qfb');
+  if(i===q.correct){
+    qScore++;
+    document.getElementById('qo-'+i).classList.add('correct');
+    fb.textContent='✓ Correcto — '+q.exp;
+    fb.className='quiz-feedback show ok';
+  } else {
+    document.getElementById('qo-'+i).classList.add('wrong');
+    document.getElementById('qo-'+q.correct).classList.add('correct');
+    fb.textContent='✗ No es esa — '+q.exp;
+    fb.className='quiz-feedback show bad';
+  }
+  document.getElementById('qnext').classList.add('show');
+}
+function nextQ(){ qIdx++; renderQ(); }
+
+// ══════════════════════════════════
+//  6. GUÍAS NATURALES DE UÑAS
+// ══════════════════════════════════
+function renderGuiasNaturales(){
+  const gridExamples=[
+    {label:"2 × 2", cols:2, rows:2, size:60, desc:"Para ejercicios rápidos de composición."},
+    {label:"4 × 4", cols:4, rows:4, size:34, desc:"Perfecta para formas básicas y bocetos grandes."},
+    {label:"5 × 5", cols:5, rows:5, size:30, desc:"Útil para detalles y proporciones más finas."},
+  ];
+  return `<h2 class="section-title">Guías de Uñas y Cuadrículas</h2>
+  <p class="section-sub">Cuadrículas prácticas para tus bocetos y proporciones</p>
+  <div class="widget">
+    <div class="wtag">Cuadrículas de dibujo</div>
+    <div class="grid-example-row">
+      ${gridExamples.map(g=>`
+        <div class="grid-card">
+          <div class="grid-card-title">${g.label}</div>
+          <div class="grid-card-svg">${buildGridVisual(g.cols,g.rows,g.size)}</div>
+          <div class="grid-card-desc">${g.desc}</div>
+        </div>`).join('')}
+    </div>
+    <p style="font-size:12px;color:var(--ink3);margin-top:12px">Estas cuadrículas te ayudan a practicar proporciones y dividir el diseño en áreas manejables. Usa una primera vez en papel y luego transfiérelo al tip.</p>
+  </div>`;
+}
+
+function buildGridVisual(cols, rows, size){
+  const W=cols*size, H=rows*size;
+  let svg=`<svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+  svg+=`<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="#fff" stroke="#E9E1D9" stroke-width="2"/>`;
+  for(let x=1;x<cols;x++) svg+=`<line x1="${x*size}" y1="0" x2="${x*size}" y2="${H}" stroke="#E0D8D0" stroke-width="1"/>`;
+  for(let y=1;y<rows;y++) svg+=`<line x1="0" y1="${y*size}" x2="${W}" y2="${y*size}" stroke="#E0D8D0" stroke-width="1"/>`;
+  svg+=`</svg>`;
+  return svg;
+}
+
+// ══════════════════════════════════
+//  7. PRESIÓN
+// ══════════════════════════════════
+function renderPresion(){
+  return `<h2 class="section-title">Simulador de Presión</h2>
+  <p class="section-sub">Aprende cómo la presión cambia cada trazo</p>
+  <div class="widget">
+    <div class="wtag">Simulador Visual</div>
+    <div class="nail-canvas">
+      <div class="nail-shape" id="nailSim">
+        <div class="s-line" id="sl1" style="width:30px;height:2px"></div>
+        <div class="s-line" id="sl2" style="width:30px;height:2px"></div>
+        <div class="s-line" id="sl3" style="width:30px;height:2px"></div>
+      </div>
+      <div class="sim-cap"><p id="simMsg" style="color:var(--sage)">Presión media — trazo equilibrado ✓</p></div>
+    </div>
+    <div class="sl-row"><label>Presión</label><input type="range" min="1" max="10" value="5" oninput="updatePres(this.value)"><span id="presVal">5</span></div>
+    <div class="p-ends"><span>Suave — Detalle fino</span><span>Fuerte — Línea gruesa</span></div>
+    <div class="warn-pill" id="warnPres">⚠️ Presión muy alta — el pincel se dobla y el trazo pierde control</div>
+    <div class="tip-pill">💡 Para cartoon: presión 3-5 para contornos, 1-2 para detalles internos</div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Tipos de trazo por presión</div>
+    ${[
+      {p:"1-2",name:"Ultra fino",       desc:"Pestañas, cabellos finos, puntos de luz. Pincel casi sin tocar la superficie.",color:"var(--lav)"},
+      {p:"3-5",name:"Contorno cartoon", desc:"La presión ideal para delinear personajes. Trazo definido y constante.",        color:"var(--rose)"},
+      {p:"6-8",name:"Relleno",          desc:"Para rellenar áreas grandes con gel color. Pincel plano o redondo.",            color:"var(--gold)"},
+      {p:"9-10",name:"Construcción",    desc:"Solo para gel de construcción. Nunca en pinceles de liner.",                   color:"var(--warn)"},
+    ].map(t=>`<div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--cream3)">
+      <div style="background:${t.color};color:#fff;border-radius:6px;padding:3px 8px;font-size:11px;white-space:nowrap;flex-shrink:0">${t.p}</div>
+      <div><strong style="font-size:12.5px;color:var(--ink)">${t.name}</strong><br><span style="font-size:11.5px;color:var(--ink3)">${t.desc}</span></div>
+    </div>`).join('')}
+  </div>`;
+}
+function updatePres(v){
+  document.getElementById('presVal').textContent=v;
+  ['sl1','sl2','sl3'].forEach(id=>{
+    const l=document.getElementById(id);
+    l.style.height=(2 + v * 1.2) + 'px';
+    l.style.width=(20 + v * 2.2) + 'px';
+  });
+  const msgs=[null,'Ultra fino — detalles y pestañas ✨','Muy suave — cabellos y brillos ✨','Fino — detalles interiores ✓','Suave-fino — líneas claras ✓','Presión media — trazo equilibrado ✓','Medio-fuerte — contornos sólidos ✓','Fuerte — relleno de áreas ⚠️','Muy fuerte — sóolo para gel base ⚠️','Presión muy alta — controla el trazo','Máxima presión'];
+  const colors=['','#7A72B0','#7A72B0','#6B9B6F','#6B9B6F','#6B9B6F','#B8832A','#B8832A','#C05030','#C05030','#C05030'];
+  const msg=document.getElementById('simMsg');
+  msg.textContent=msgs[v]; msg.style.color=colors[v];
+  document.getElementById('warnPres').style.display=v>=10?'block':'none';
+}
+
+// ══════════════════════════════════
+//  8. CAPAS
+// ══════════════════════════════════
+const LAYERS_DATA=[
+  {name:"Prep & Primer",    desc:"Desengrasado con alcohol 90%, aplicación de primer para adhesión.", color:"#E8D8F0",border:"#9B70C0",step:"Base"},
+  {name:"Base Coat",        desc:"Capa protectora. Evita manchas y mejora durabilidad. Cura 60 seg.", color:"#FAEEF1",border:"#C8546A",step:"Protección"},
+  {name:"Color Base",       desc:"1-2 capas delgadas del color de fondo. Cada una curada 60 seg.",    color:"#FBF4E3",border:"#B8832A",step:"Color"},
+  {name:"Diseño / Arte",    desc:"Aquí va el personaje. Painting gel, esmalte o acrílico.",           color:"#EAF2EB",border:"#6B9B6F",step:"Arte"},
+  {name:"Top Coat No-Wipe", desc:"Sella todo. Una capa generosa y pareja. Cura 60-90 seg.",           color:"#E4EFF7",border:"#4A7FA8",step:"Sellado"},
+];
+function renderCapas(){
+  return `<h2 class="section-title">Sistema de Capas</h2>
+  <p class="section-sub">El orden correcto garantiza durabilidad y belleza</p>
+  <div class="widget">
+    <div class="wtag">Capas del gel</div>
+    <div class="lsteps">${LAYERS_DATA.map((l,i)=>`<div class="lstep${i===0?' on':''}" onclick="showLayer(${i})" id="lstep-${i}">${i+1}. ${l.step}</div>`).join('')}</div>
+    <div id="layerInfo" style="background:${LAYERS_DATA[0].color};border-radius:11px;padding:14px 16px;margin-top:10px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div style="width:28px;height:28px;border-radius:50%;background:${LAYERS_DATA[0].color};border:2px solid ${LAYERS_DATA[0].border}"></div>
+        <strong style="font-size:14px;color:var(--ink);font-family:var(--font-title)" id="lname">${LAYERS_DATA[0].name}</strong>
+      </div>
+      <p style="font-size:12.5px;color:var(--ink2);line-height:1.7" id="ldesc">${LAYERS_DATA[0].desc}</p>
+    </div>
+    <div class="tip-pill">💡 Nunca saltes capas — cada una tiene una función esencial</div>
+  </div>
+  <div class="widget">
+    <div class="wtag">Errores más comunes</div>
+    ${[
+      {icon:"❌",err:"Capas muy gruesas",       fix:"Aplica capas delgadas. Gruesas = burbujas y levantamiento."},
+      {icon:"❌",err:"No curar entre capas",    fix:"Cada capa DEBE curarse antes de la siguiente."},
+      {icon:"❌",err:"No desengrasar antes",    fix:"El aceite natural de la uña arruina la adhesión."},
+      {icon:"❌",err:"Top coat muy fino",       fix:"El top muy fino no sella el arte — aplica generoso."},
+    ].map(e=>`<div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--cream3)">
+      <span>${e.icon}</span>
+      <div><strong style="font-size:12px;color:var(--warn)">${e.err}</strong><br><span style="font-size:11.5px;color:var(--ink3)">${e.fix}</span></div>
+    </div>`).join('')}
+  </div>`;
+}
+function showLayer(i){
+  document.querySelectorAll('.lstep').forEach((s,j)=>s.classList.toggle('on',j===i));
+  const l=LAYERS_DATA[i];
+  document.getElementById('lname').textContent=l.name;
+  document.getElementById('ldesc').textContent=l.desc;
+  document.getElementById('layerInfo').style.background=l.color;
+}
+
+// ══════════════════════════════════
+//  9. GEL
+// ══════════════════════════════════
+const GELS_DATA=[
+  {icon:"💧",lbl:"Builder Clear",   recipe:"<strong>Función:</strong> Estructura y longitud.<br><strong>Aplicación:</strong> Capas delgadas, cura 60 seg c/u.<br><strong>Tip:</strong> No toques la piel lateral.",time:"60 seg"},
+  {icon:"🎨",lbl:"Gel Color",       recipe:"<strong>Función:</strong> Color base y fondos.<br><strong>Mezcla:</strong> Agita el frasco antes de usar.<br><strong>Tip:</strong> 2 capas delgadas > 1 gruesa.",time:"60 seg"},
+  {icon:"✨",lbl:"Painting Gel",    recipe:"<strong>Función:</strong> Arte y detalles finos.<br><strong>Densidad:</strong> Alta — no se corre.<br><strong>Tip:</strong> Ideal para cartoon y personajes.",time:"30 seg"},
+  {icon:"🔝",lbl:"Top Coat",        recipe:"<strong>Función:</strong> Sellado final y brillo.<br><strong>No-wipe:</strong> Sin capa pegajosa.<br><strong>Tip:</strong> Capa generosa y pareja.",time:"90 seg"},
+  {icon:"🧴",lbl:"Base Coat",       recipe:"<strong>Función:</strong> Adhesión y protección.<br><strong>Aplica:</strong> Solo una capa fina.<br><strong>Tip:</strong> No te saltes este paso.",time:"60 seg"},
+  {icon:"⚡",lbl:"Gel UV Rápido",   recipe:"<strong>Función:</strong> Secado ultrarrápido.<br><strong>Lámpara:</strong> Solo 30 seg LED.<br><strong>Tip:</strong> Útil para correcciones rápidas.",time:"30 seg"},
+];
+function renderGel(){
+  return `<h2 class="section-title">Guía de Geles</h2>
+  <p class="section-sub">Conoce cada tipo y cuándo usarlo</p>
+  <div class="widget">
+    <div class="wtag">Tipos de gel</div>
+    <div class="gel-opts">${GELS_DATA.map((g,i)=>`<div class="gel-btn${i===0?' sel':''}" onclick="selGel(${i})" id="gb-${i}"><div class="gel-icon">${g.icon}</div><div class="gel-lbl">${g.lbl}</div></div>`).join('')}</div>
+    <div class="gel-result">
+      <p class="gel-recipe" id="gelRecipe">${GELS_DATA[0].recipe}</p>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+        <span style="font-size:11px;color:var(--ink3)">⏱ Tiempo de curado:</span>
+        <span style="background:var(--roselt);color:var(--rose);border-radius:8px;padding:2px 10px;font-size:11.5px" id="gelTime">${GELS_DATA[0].time}</span>
+      </div>
+    </div>
+  </div>`;
+}
+function selGel(i){
+  document.querySelectorAll('.gel-btn').forEach((b,j)=>b.classList.toggle('sel',j===i));
+  document.getElementById('gelRecipe').innerHTML=GELS_DATA[i].recipe;
+  document.getElementById('gelTime').textContent=GELS_DATA[i].time;
+}
+
+// ══════════════════════════════════
+//  10. MEZCLAS
+// ══════════════════════════════════
+function renderMezclas(){
+  return `<h2 class="section-title">Mezclas de Gel</h2>
+  <p class="section-sub">Proporciones exactas para colores perfectos</p>
+  <div class="widget">
+    <div class="wtag">Fórmulas de mezcla</div>
+    <div class="mezcla-grid">${MZ.map((m,i)=>`
+      <div class="mezcla-card" onclick="selMezcla(${i})" id="mc-${i}">
+        <div class="m-preview">
+          <div class="m-dot" style="background:${m.c1}"></div>
+          <span class="m-eq">+</span>
+          <div class="m-dot" style="background:${m.c2}"></div>
+          <span class="m-eq">=</span>
+          <div class="m-res" style="background:${m.r}"></div>
+        </div>
+        <div class="m-txt"><strong>${m.lbl}</strong></div>
+      </div>`).join('')}
+    </div>
+    <div class="mezcla-detail" id="mezclaDetail">
+      <h4 id="mzTitle"></h4>
+      <p id="mzDesc"></p>
+      <p style="font-size:11px;color:var(--ink3);margin-top:6px;font-style:italic" id="mzUso"></p>
+    </div>
+  </div>
+  <div class="tip-pill">💡 Siempre mezcla sobre godete o papel aluminio — nunca en el frasco</div>`;
+}
+function selMezcla(i){
+  document.querySelectorAll('.mezcla-card').forEach((c,j)=>c.classList.toggle('sel',j===i));
+  const m=MZ[i];
+  document.getElementById('mzTitle').textContent=m.lbl;
+  document.getElementById('mzDesc').textContent=m.detail;
+  document.getElementById('mzUso').textContent='Ideal para: '+m.uso;
+  document.getElementById('mezclaDetail').classList.add('show');
+}
+
+// ══════════════════════════════════
+//  11. CONTRASTE
+// ══════════════════════════════════
+function renderContraste(){
+  return `<h2 class="section-title">Contraste de Colores</h2>
+  <p class="section-sub">Qué fondos hacen resaltar tu diseño</p>
+  <div class="widget">
+    <div class="wtag">Simulador de Contraste</div>
+    <div class="contrast-layout">
+      <div class="nail-demo" id="contrastNail" style="background:#FFFACC">
+        <div class="cartoon-f"><div class="c-eyes"><div class="c-eye"></div><div class="c-eye"></div></div><div class="c-mouth"></div></div>
+      </div>
+      <div class="contrast-info">
+        <h4 id="contrastName">Amarillo pastel</h4>
+        <p id="contrastDesc">Fondo suave que permite ver todos los detalles del diseño.</p>
+        <span class="c-badge" id="contrastBadge" style="background:var(--sagelt);color:var(--sage)">Contraste alto ✓</span>
+      </div>
+    </div>
+    <div class="color-pal">${MC.map((c,i)=>`<button class="cp-btn${i===0?' sel':''}" style="background:${c.hex}" onclick="selContrast(${i})" title="${c.name}"></button>`).join('')}</div>
+  </div>`;
+}
+function selContrast(i){
+  document.querySelectorAll('.cp-btn').forEach((b,j)=>b.classList.toggle('sel',j===i));
+  const c=MC[i];
+  document.getElementById('contrastNail').style.background=c.hex;
+  document.getElementById('contrastName').textContent=c.name;
+  const msgs={
+    'máximo':'Máximo contraste — cualquier color de diseño se verá perfecto.',
+    'alto':'Contraste alto — ideal para personajes detallados.',
+    'medio':'Contraste medio — funciona bien con colores oscuros.',
+    'bajo':'Contraste bajo — solo recomendado para diseños en tono oscuro.',
+    'nulo':'Negro de fondo — los diseños deben ser en blanco o colores muy claros.',
+  };
+  const bgC={'máximo':'var(--sagelt)','alto':'var(--sagelt)','medio':'var(--goldlt)','bajo':'var(--warnlt)','nulo':'var(--warnlt)'};
+  const fgC={'máximo':'var(--sage)','alto':'var(--sage)','medio':'var(--gold)','bajo':'var(--warn)','nulo':'var(--warn)'};
+  document.getElementById('contrastDesc').textContent=msgs[c.contrast]||'';
+  const badge=document.getElementById('contrastBadge');
+  badge.textContent='Contraste '+c.contrast;
+  badge.style.background=bgC[c.contrast];
+  badge.style.color=fgC[c.contrast];
+}
+
+const GAME_DATA=[
+  {q:'¿El amarillo es cálido o frío?', opts:['Cálido','Frío'], correct:0, exp:'El amarillo siempre es un color cálido.'},
+  {q:'Si mezclas azul + amarillo, obtienes...', opts:['Rojo','Verde'], correct:1, exp:'Azul + amarillo = verde.'},
+  {q:'¿Qué fondo da mayor contraste con un diseño amarillo?', opts:['Negro','Gris claro'], correct:0, exp:'Negro crea contraste alto con amarillo.'},
+  {q:'Para detalles finos, la presión debe ser...', opts:['Baja','Alta'], correct:0, exp:'La presión baja logra trazos más finos.'},
+  {q:'¿Qué color complementario al rojo funciona mejor?', opts:['Verde','Naranja'], correct:0, exp:'El verde es el complementario del rojo.'},
+];
+let gameIdx=0, gameScore=0, gameAnswered=false;
+function renderJuego(){
+  return `<h2 class="section-title">Desafío de Color</h2>
+  <p class="section-sub">Un juego rápido para reforzar lo que aprendiste antes del quiz</p>
+  <div class="widget">
+    <div class="wtag">Ronda de preguntas</div>
+    <div class="quiz-card" style="padding:18px;">
+      <div class="quiz-prog" id="gameProg">Pregunta ${gameIdx+1} de ${GAME_DATA.length}</div>
+      <div class="quiz-q" id="gameQ" style="margin-top:14px"></div>
+      <div class="quiz-opts" id="gameOpts"></div>
+      <div class="quiz-feedback" id="gameFb"></div>
+      <button class="q-next-btn" id="gameNext" onclick="nextGame()">Siguiente →</button>
+    </div>
+  </div>`;
+}
+function initGame(){ gameIdx=0; gameScore=0; gameAnswered=false; renderGame(); }
+function renderGame(){
+  const q = GAME_DATA[gameIdx];
+  const qEl = document.getElementById('gameQ');
+  const optsEl = document.getElementById('gameOpts');
+  const fbEl = document.getElementById('gameFb');
+  const nxt = document.getElementById('gameNext');
+  const prog = document.getElementById('gameProg');
+  if(!qEl || !optsEl || !fbEl || !nxt || !prog) return;
+  prog.textContent = `Pregunta ${gameIdx+1} de ${GAME_DATA.length}`;
+  qEl.textContent = q.q;
+  fbEl.className = 'quiz-feedback';
+  fbEl.textContent = '';
+  gameAnswered = false;
+  nxt.classList.remove('show');
+  optsEl.innerHTML = q.opts.map((opt,i)=>`<button class="quiz-opt" onclick="answerGame(${i})" id="go-${i}">${opt}</button>`).join('');
+}
+function answerGame(i){
+  if(gameAnswered) return;
+  gameAnswered = true;
+  const q = GAME_DATA[gameIdx];
+  document.querySelectorAll('#gameOpts .quiz-opt').forEach(b=>b.disabled=true);
+  const fbEl = document.getElementById('gameFb');
+  if(i===q.correct){
+    document.getElementById('go-'+i).classList.add('correct');
+    gameScore++;
+    fbEl.className='quiz-feedback show ok';
+    fbEl.textContent = '✓ ¡Bien! ' + q.exp;
+  } else {
+    document.getElementById('go-'+i).classList.add('wrong');
+    document.getElementById('go-'+q.correct).classList.add('correct');
+    fbEl.className='quiz-feedback show bad';
+    fbEl.textContent = '✗ Casi. ' + q.exp;
+  }
+  document.getElementById('gameNext').classList.add('show');
+}
+function nextGame(){
+  if(gameIdx + 1 >= GAME_DATA.length){
+    const area = document.getElementById('gameQ');
+    const opts = document.getElementById('gameOpts');
+    const fbEl = document.getElementById('gameFb');
+    const prog = document.getElementById('gameProg');
+    const nxt = document.getElementById('gameNext');
+    prog.textContent = 'Desafío completo';
+    area.textContent = `Lograste ${gameScore} de ${GAME_DATA.length}.`;
+    opts.innerHTML = '';
+    fbEl.className='quiz-feedback show ok';
+    fbEl.textContent = gameScore >= 4 ? '¡Excelente! Ya estás lista para el quiz.' : 'Buen repaso. Revisa los conceptos antes del quiz.';
+    nxt.textContent = 'Ir al Quiz →';
+    nxt.onclick = () => switchTab('quiz');
+    return;
+  }
+  gameIdx++;
+  renderGame();
+}
+
+// ══════════════════════════════════
+//  12. MÓDULOS DEL CURSO
+// ══════════════════════════════════
+function renderClases(){
+  let html=`<h2 class="section-title">Módulos del Curso</h2>
+  <p class="section-sub">Sigue los módulos en orden para mejores resultados</p>
+  <div class="modulo-header"><h2>Nail Art</h2><p>4 módulos · 18 lecciones · Acceso de por vida </p><div class="modulo-progress"><div class="modulo-progress-fill" style="width:0%"></div></div></div>`;
+  MODULOS.forEach((m,i)=>{
+    const isNext=m.status==='próximamente';
+    html += `<div class="modulo-card" onclick="manejarClickModulo(MODULOS[${i}], ${i})">
+      <div class="mod-num" style="background:${m.bg};color:${m.color}">M${m.num}</div>
+      <div class="mod-text" style="flex:1"><h4>${m.titulo}</h4><p>${m.desc}</p></div>
+      <span class="mod-status" style="background:${isNext?'#FBF4E3':'#EAF2EB'};color:${isNext?'#B8832A':'#6B9B6F'}">${isNext?'🔜 Pronto':'✓ Activo'}</span>
+    </div>
+    <div class="lesson-panel" id="lp-${i}">
+      ${m.lecciones.map(l=>`
+        <div class="lesson-item">
+          <div class="lesson-num">${l.n}</div>
+          <div style="flex:1"><div class="lesson-text">${l.titulo}</div><div class="lesson-tag">${l.sub}</div></div>
+           ${isNext
+            ? '<span class="coming-badge">Próximamente</span>'
+            : `<button class="video-btn" 
+    title="${m.titulo === 'Realismo' ? 'Este curso aún no está disponible' : 'Esta clase estará disponible pronto'}"
+    onclick="${l.link 
+        ? 'window.open(\'' + l.link + '\', \'_blank\')' 
+        : (m.titulo === 'Realismo' 
+            ? 'alert(\'Este curso aún no está disponible\')' 
+            : 'alert(\'Esta clase estará disponible pronto\')')
+    }">
+    ${l.link ? 'Ver' : 'Próximamente'}
+</button>`}
+        </div>`).join('')}
+    </div>`;
+  });
+ html+=`<div class="wa-cta" style="margin-top:20px">
+    <p class="eyebrow">¿Dudas con la técnica?</p>
+    <h3>Estoy aquí para apoyarte</h3>
+    <p class="desc">Si enfrentas un bloqueo técnico que te impide avanzar,<br>
+            escríbeme por WhatsApp y lo revisamos juntas.</p>
+    <a href="https://wa.me/584122407829" target="_blank" class="wa-big-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.571l5.887-1.543A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.031-1.386l-.361-.214-3.733.979.998-3.648-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+      <span>Escribir a Rubimar →</span>
+    </a>
+  </div>`;
+  return html;
+}
+function manejarClickModulo(modulo, index) {
+    if (modulo.titulo === 'Realismo') {
+        alert('Este curso aún no está disponible');
+    } else {
+        toggleLesson(index);
+    }
+}
+function toggleLesson(i){
+  document.getElementById('lp-'+i).classList.toggle('open');
+}
+function openLesson(e,titulo){
+  e.stopPropagation();
+  alert('📹 "'+titulo+'"\n\nPronto encontrarás el enlace del video aquí.\nPor ahora escríbele a Rubimar por WhatsApp.');
+}
+
+// ══════════════════════════════════
+//  13. PANTALLA DE CIERRE
+// ══════════════════════════════════
+function renderCierre(){
+  return `<div class="cierre-screen">
+    <div class="cierre-dots">
+      <div class="cierre-dot" style="background:var(--rose)"></div>
+      <div class="cierre-dot" style="background:var(--gold)"></div>
+      <div class="cierre-dot" style="background:var(--lav)"></div>
+    </div>
+    <div class="cierre-icon">✨</div>
+    <h2 class="cierre-title">Hasta aquí llegamos<br>— y fue hermoso</h2>
+    <div class="cierre-msg">
+      "Hemos llegado al final de esta práctica". <br> Espero que haya sido de disfrute esta experiencia. <br><br> ¡Recuerda que si somos luz, todos podemos brillar!
+      <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.08em">— Rubimar Testa</div>
+    </div>
+    <p class="cierre-cta-title">¡Comparte tu resultado con el mundo!</p>
+    <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:320px;margin:0 auto 20px">🌟Envíame una foto de tus trabajos a través de WhatsApp y comparte en tus redes tu hermoso ARTE🌟<br><br>¡Cuentale a otros sobre esta experiendia para que también la vivan contigo!</p>
+    <div class="cierre-btns">
+      <a href="https://wa.me/584122407829?text=Hola Rubimar! Te envío mis resultados del curso de Nail Art🎨💅" target="_blank" class="cierre-wa-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.571l5.887-1.543A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.031-1.386l-.361-.214-3.733.979.998-3.648-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+        <span>Enviar fotos de mis resultados por WhatsApp →</span>
+      </a>
+      <a href="https://instagram.com/rubimartesta" target="_blank" class="cierre-ig-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24"><defs><linearGradient id="igc" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#igc)"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8" fill="none"/><circle cx="17.2" cy="6.8" r="1.2" fill="white"/></svg>
+        <span>Menciona a @rubimartesta en Instagram</span>
+      </a>
+    </div>
+    <p class="cierre-firma">Nail Art · Creado con amor por Rubimar Testa</p>
+  </div>
+  <div class="widget" style="margin-top:0;text-align:center">
+    <p style="font-size:12.5px;color:var(--ink2);line-height:1.8;font-style:italic;margin-bottom:16px">¿Quieres seguir aprendiendo?<br>Los nuevos módulos están en camino.</p>
+    <a href="https://wa.me/584122407829?text=Hola Rubimar, terminé el curso! Quiero saber cuándo salen los nuevos módulos 🎨" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;border-radius:10px;padding:12px 22px;text-decoration:none;font-size:12.5px;font-family:var(--font-body)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.571l5.887-1.543A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.031-1.386l-.361-.214-3.733.979.998-3.648-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+      Avisar cuando haya módulos nuevos →
+    </a>
+  </div>`;
+}
+</script>
+</body>
+</html>
